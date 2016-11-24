@@ -1,0 +1,1 @@
+CREATE TABLE User(name varchar(50) not null,username varchar(20) PRIMARY KEY, age number(2) not null, email varchar(50) not null, password varchar(20) not null);

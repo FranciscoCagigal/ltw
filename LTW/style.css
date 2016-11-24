@@ -1,0 +1,14 @@
+html { background-color: black; }
+
+body {
+	margin-left:20%;
+	margin-right:20%;
+	background-color:yellow;
+}
+
+#title {
+	padding-top:15px;
+	color:red;
+	text-align: center;
+
+}
