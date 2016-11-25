@@ -3,11 +3,11 @@ session_start();
 
 if(isset($_GET['page']))
 {
-$page=$_GET['page'].'.php';
+$page='templates/'.$_GET['page'].'.php';
 }
-else $page='registration.php';
+else $page='templates/registration.php';
 
-include_once('header.php');
+include_once('templates/header.php');
 include_once($page);
-include_once('footer.php');
+include_once('templates/footer.php');
 ?>
