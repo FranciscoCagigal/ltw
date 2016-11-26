@@ -5,7 +5,7 @@ if(isset($_GET['page']))
 {
 $page='templates/'.$_GET['page'].'.php';
 }
-else $page='templates/registration.php';
+else $page='templates/site.php';
 
 include_once('templates/header.php');
 include_once($page);
