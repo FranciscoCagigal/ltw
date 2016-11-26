@@ -22,8 +22,7 @@ $(function (){
 		}).done(function(data) {
 			console.log(data);
 		 if(data.status == 'success'){
-			alert('entrei');
-			document.location.href='index.php?page=login',true;
+			document.location.href='index.php?page=rests',true;
 		 }
 		 else if(data.status == 'userNotExists'){
 			 alert('username or password incorrect/s');

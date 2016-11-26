@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	
-	
 	include_once('connection.php');
 	include_once('userRegistration.php');
 	include_once('userLogin.php');
@@ -22,6 +21,7 @@
 			break;
 		
 		case 'loginUser':
+			
 			if(checkLogin($dbh,$jsonData->username,$jsonData->password)==0){
 					$response_array['status'] = 'success';
 			}
