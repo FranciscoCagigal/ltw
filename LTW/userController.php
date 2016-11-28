@@ -24,8 +24,19 @@
 			
 			if(checkLogin($dbh,$jsonData->username,$jsonData->password)==0){
 					$response_array['status'] = 'success';
+					$_SESSION['username'] = $jsonData->username;
 			}
 			else $response_array['status'] = 'userNotExists';
+			break;
+			
+		case 'logoutUser':
+			if(isset($_SESSION['username']))
+			{	
+				session_start();
+				session_unset();
+				session_destroy();
+				$response_array['status'] = 'success';
+			}
 			break;
 		}
 	}
