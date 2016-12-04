@@ -1,0 +1,100 @@
+/*------------------------------------------------------------------
+* Table of Content
+* 1. Header
+* 2. Sticky Header
+* 3. Hero
+* 4. Search Form
+* 5. Featured Items
+* 6. Team
+* 7. Tab
+* 8. Counting
+* 9. 404 page
+* 10. Sorting
+* 11. Post Hero
+* 12. Latest Ticker
+* 13. Breadcrumb
+* 14. Category
+* 15. Sidebar
+* 16. Blog
+* 17. Social Share
+* 18. Pager
+* 19. Restaurant
+* 20. Restaurant Detail
+* 21. Resume
+* 22. Search Restaurant
+* 23. Join our team
+* 24. Employer
+* 25. Staff
+* 26. Location
+* 27. Testimonial
+* 28. Popular Related
+* 29. Newsletter
+* 30. Footer
+* 31. Admin
+* 32. Pricing
+* 33. Contact Us
+* 34. Faq
+* 35. Static Page
+* 36. Login and Register
+* 37. how to order/order process
+* 38. banner section
+* 39. Download App Area
+* 40. Reservation
+* 41. Style B pricing Table
+* 42  About us page
+* 43  Default Footer
+-------------------------------------------------------------------*/
+
+/**
+ * Header
+ */
+
+.navbar-default {
+    background: transparent;
+}
+
+.navbar {
+    border-bottom: 0;
+    padding: 0;
+    transition: all 0.1s ease-in-out 0s;
+    min-height: 30px;
+}
+
+.navbar.navbar-default {
+    margin: 0;
+    padding: 20px 0;
+    height: auto;
+}
+
+.logo-wrapper {
+    min-height: 20px;
+    float: left;
+    margin: 0;
+}
+
+.logo-wrapper .logo {
+    padding: 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.not-transparent-header .navbar-default {
+    background: #20262F;
+}
+
+.logo-wrapper,
+.navbar-nav-wrapper,
+.nav-mini-wrapper {
+    float: left;
+}
+
+.logo-wrapper {
+    width: 15%;
+}
+
+.navbar-nav-wrapper {
+    width: 70%;
+}
+
+.nav-mini-wrapper {
+    width: 15%;
+}
