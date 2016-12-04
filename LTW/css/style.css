@@ -1,100 +1,211 @@
-/*------------------------------------------------------------------
-* Table of Content
-* 1. Header
-* 2. Sticky Header
-* 3. Hero
-* 4. Search Form
-* 5. Featured Items
-* 6. Team
-* 7. Tab
-* 8. Counting
-* 9. 404 page
-* 10. Sorting
-* 11. Post Hero
-* 12. Latest Ticker
-* 13. Breadcrumb
-* 14. Category
-* 15. Sidebar
-* 16. Blog
-* 17. Social Share
-* 18. Pager
-* 19. Restaurant
-* 20. Restaurant Detail
-* 21. Resume
-* 22. Search Restaurant
-* 23. Join our team
-* 24. Employer
-* 25. Staff
-* 26. Location
-* 27. Testimonial
-* 28. Popular Related
-* 29. Newsletter
-* 30. Footer
-* 31. Admin
-* 32. Pricing
-* 33. Contact Us
-* 34. Faq
-* 35. Static Page
-* 36. Login and Register
-* 37. how to order/order process
-* 38. banner section
-* 39. Download App Area
-* 40. Reservation
-* 41. Style B pricing Table
-* 42  About us page
-* 43  Default Footer
--------------------------------------------------------------------*/
-
-/**
- * Header
- */
-
-.navbar-default {
-    background: transparent;
-}
-
-.navbar {
-    border-bottom: 0;
-    padding: 0;
-    transition: all 0.1s ease-in-out 0s;
-    min-height: 30px;
-}
-
-.navbar.navbar-default {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
     margin: 0;
-    padding: 20px 0;
-    height: auto;
-}
-
-.logo-wrapper {
-    min-height: 20px;
-    float: left;
-    margin: 0;
-}
-
-.logo-wrapper .logo {
     padding: 0;
-    transition: all 0.3s ease-in-out 0s;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    zoom: 1;
 }
 
-.not-transparent-header .navbar-default {
-    background: #20262F;
+html {
+    font-family: sans-serif;
 }
 
-.logo-wrapper,
-.navbar-nav-wrapper,
+header{
+	background-color: gray;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 10%;
+	padding-right: 5%;
+}
+
+#navbar{
+	padding-left: 20%;
+}
+
+#header li{
+	margin-top: 8%;
+	display: inline-block;
+}
+
+.logo{
+	float:left;
+	margin-top: 2%;
+}
+
+.navbar-nav li a{
+	display: inline-block;
+    padding: 5px 10px 6px;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+    line-height: 1;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.navbar-nav li{
+	margin-right: 1%;
+}
+
+ul.navbar-nav li:hover {
+    background: #e7604a;
+    border-color: #e7604a;
+}
+
+ul.navbar-nav li:hover a{
+    color: #FFF;
+}
+
+.user-restaurant-contacts-list{
+	border-style: dotted;
+}
+
+.navbar-nav .user-restaurant-contacts-list {
+	border: 0;
+}
+
 .nav-mini-wrapper {
-    float: left;
+    width: 16%;
 }
 
-.logo-wrapper {
-    width: 15%;
+.user-list ul{
+	list-style: none;
+	padding-left: 0;
+	display:none;
+	position: absolute;
+	background-color: gray;
 }
 
-.navbar-nav-wrapper {
-    width: 70%;
+.user-list:hover .dropdownuser{
+	display:block;
 }
 
-.nav-mini-wrapper {
-    width: 15%;
+.user-list{
+	position: relative;
+	display: inline-block;
+}
+
+.restaurant-list ul{
+	list-style: none;
+	padding-left: 0;
+	display:none;
+	position: absolute;
+	background-color: gray;
+}
+
+.restaurant-list:hover .dropdownrestaurant{
+	display:block;
+}
+
+.restaurant-list{
+	position: relative;
+	display: inline-block;
+}
+
+ul.nav-mini.sign-in {
+    margin-top: 1px;
+	position: relative;
+    left: 550%;
+}
+
+ul.nav-mini.sign-in li:after {
+    /*display: none;*/
+}
+
+ul.nav-mini.sign-in li a {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    line-height: 1;
+    border-radius: 2px;
+    font-weight: 600;
+    padding: 3px 8px 4px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+ul.nav-mini.sign-in li a:hover {
+    color: #FFF;
+    background: #e7604a;
+    border-color: #e7604a;
 }

@@ -4,13 +4,10 @@
 	<meta charset="utf-8">
 	
 	<!-- Title Of Site -->
-	<title>Just eat.</title>
-
-	<!-- CSS  -->
-	<link href="css/main.css" rel="stylesheet">
+	<title>Just food.</title>
 
 	<script src="scripts/logout.js" type="text/javascript"></script>
-	
+
 	<!-- CSS Custom -->
 	<link href="css/style.css" rel="stylesheet">
 
@@ -31,7 +28,7 @@
 
 					<div class="logo-wrapper">
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt="Logo" /></a>
+							<a href="index.html"><img src="images/restaurant/logo.png" alt="Logo" width="150" /></a>
 						</div>
 					</div>
 
@@ -47,40 +44,28 @@
 								<a href="restaurant.html">Restaurantes</a>
 							</li>
 
-							<li>
-								<a href="#">Pagina</a>
-								<ul>
-									<li>
-										<a href="user.html">Utilizador</a>
-										<ul>
-											<li><a href="user-profile.html">Perfil do utilizador</a></li>
-											<li><a href="user-profile-update.html">Atualização do perfil</a></li>
-											<li><a href="user-favourite-restaurant.html">Restaurante favorito</a></li>
-											<li><a href="user-change-pass.html">Alterar password</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Conta</a>
-										<ul>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="login.html">Registar</a></li>
-											<li><a href="account-forgot-password-page.html">Esqueci-me da password</a></li>
-										</ul>
-									</li>
+		
+							<li class="user-list">
+								<a href="user.html">Utilizador</a>
+								<ul class="dropdownuser">
+									<li><a href="user-profile.html">Perfil do utilizador</a></li>
+									<li><a href="user-profile-update.html">Atualizar perfil</a></li>
+									<li><a href="user-favourite-restaurant.html">Restaurante favorito</a></li>
+									<li><a href="user-change-pass.html">Alterar Password</a></li>
+								</ul>
+							</li>
+		
 
-									<li>
-										<a href="#">Restaurante</a>
-										<ul>
-											<li><a href="restaurant-owner-dashboard.html">Adicionar restaurante</a></li>
-											<li><a href="restaurant-detail.html">Gerir restaurante</a></li>
-										</ul>
-									</li>
-
-									<li><a href="about-us.html">Sobre nós</a></li>
-									<li><a href="contact.html">Contactos</a></li>
+							<li class="restaurant-list">
+								<a href="#">Restaurante</a>
+								<ul class="dropdownrestaurant">
+									<li><a href="restaurant-owner-dashboard.html">Adicionar restaurante</a></li>
+									<li><a href="restaurant-detail.html">Gerir restaurante</a></li>
 								</ul>
 							</li>
 
+							<li class="aboutus-list"><a href="about-us.html">Sobrenos</a></li>
+							<li class="contacts-list"><a href="contact.html">Contactos</a></li>
 						</ul>
 
 					</div>
