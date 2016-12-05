@@ -209,3 +209,77 @@ ul.nav-mini.sign-in li a:hover {
     background: #e7604a;
     border-color: #e7604a;
 }
+
+#fundo{
+	background-image:url('../images/site/fundo.jpg');
+	background-repeat: no-repeat;
+	 background-size: cover;
+}
+
+#login,#registration{
+	text-align: center;
+}
+
+#login input{
+	width:200px;
+	margin-top:1%;
+	margin-bottom:2%;
+	padding-left:1%;
+	padding-top:1%;
+	padding-bottom:1%;
+}
+#login button{
+	margin-bottom:2%;
+}
+
+#submit {
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+	width:90px;
+}
+
+#registration p{
+	padding-top:2%;
+}
+
+#registration button{
+	margin-bottom:2%;
+}
+
+#registration input{
+	width:200px;
+	margin-top:1%;
+	margin-bottom:1%;
+	padding-left:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+
+
+.rating {
+    width:160px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    opacity:0;
+	width:25px;
+    height:25px;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+	margin-right:2px;
+    
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    color:#FFF;
+	content:url("../images/restaurant/star.png");
+}
