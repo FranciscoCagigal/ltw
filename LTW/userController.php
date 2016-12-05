@@ -32,11 +32,18 @@
 		case 'logoutUser':
 			if(isset($_SESSION['username']))
 			{	
-				session_start();
 				session_unset();
 				session_destroy();
 				$response_array['status'] = 'success';
 			}
+			break;
+			
+		case 'loggedUser':
+			if(isset($_SESSION['username']))
+			{	
+				$response_array['status'] = 'success';
+			}
+			else $response_array['status'] = 'not';
 			break;
 		}
 	}
