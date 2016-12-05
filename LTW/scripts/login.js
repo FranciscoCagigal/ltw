@@ -23,6 +23,7 @@ $(function (){
 			console.log(data);
 		 if(data.status == 'success'){
 			document.location.href='index.php?page=rests',true;
+			
 		 }
 		 else if(data.status == 'userNotExists'){
 			 alert('username or password incorrect/s');

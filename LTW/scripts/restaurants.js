@@ -11,12 +11,12 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(restData)
 		}).done(function(data) {
-			console.log(data);
 		 if(data.status == 'success'){
-			alert('oi');
+			
 			var resultHTML="";
+			
 			for(var i=0;i<data.info.length;i++){
-				resultHTML+="<p>"+data.info[i].name+"</p><p>"+data.info[i].rating+"<img src=images/restaurant/star.png width=30></>" ;
+				resultHTML+="<p><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a></p><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></>" ;
 			}
 			$("#restsList").append(resultHTML);
 		 }
