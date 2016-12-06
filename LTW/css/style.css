@@ -47,8 +47,6 @@ dd,
 ol,
 ul,
 li,
-fieldset,
-form,
 label,
 legend,
 table,
@@ -86,6 +84,10 @@ video {
     font-family: inherit;
     vertical-align: baseline;
     zoom: 1;
+}
+
+a {
+    text-decoration: none;
 }
 
 html {
@@ -256,6 +258,65 @@ ul.nav-mini.sign-in li a:hover {
 	padding-bottom:5px;
 }
 
+.row{
+	background-color:red;
+	display:inline-flex;
+}
+
+.search-restaurant-wrapper .container{
+	text-align:center;
+}
+
+.search-restaurant{
+	background-color:gray;
+	border:solid;
+	width:300px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius:15px;
+	margin:0px auto;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.Selector-content {
+	padding-top:30px;
+	display:inline-flex;
+	margin-left:30px;
+	padding-bottom:30px;
+	font-size:120%;
+}
+
+.results{
+	margin-left:30px;
+}
+
+.Selector{
+	margin-right:20px;
+}
+
+.RestaurantItem{
+	margin-top:20px;
+}
+
+.bigText{
+	width: 300px;
+	height:300px;
+}
+
+.create-restaurant-wrapper .container *{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.create-restaurant-wrapper {
+ overflow: auto; 
+ }
+ 
+.create-restaurant-wrapper #submit{
+	margin-left:1%;
+}
+
 
 
 .rating {
@@ -282,4 +343,38 @@ ul.nav-mini.sign-in li a:hover {
 .rating span.checked ~ span label {
     color:#FFF;
 	content:url("../images/restaurant/star.png");
+}
+
+.LastFooter{
+	width: 300px;
+	text-align:left;
+	padding-left:5%;
+	padding-top:5%;
+	list-style-type: none;
+}
+
+.LastFooter ul{
+	padding-top:10px;
+	list-style-type: none;
+}
+
+.LastFooter li{
+	padding-top:10px;
+}
+
+.LastFooter a:hover{
+	color:red;
+}
+
+footer{
+	text-align:center;
+	background-color:gray;
+}
+
+.footer-wrapper{
+	display:inline-flex;
+}
+
+.bottom-footer{
+	margin-top:5%;
 }
