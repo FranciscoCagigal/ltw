@@ -5,7 +5,7 @@
 	
 	<!-- Title Of Site -->
 	<title>Just food.</title>
-
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="scripts/logout.js" type="text/javascript"></script>
 
 	<!-- CSS Custom -->
@@ -37,11 +37,11 @@
 						<ul class="nav navbar-nav" id="responsive-menu">
 
 							<li>
-								<a href="index.html">Home</a>
+								<a href="?page=home">Home</a>
 							</li>
 
 							<li>
-								<a href="restaurant.html">Restaurantes</a>
+								<a href="?page=rests">Restaurantes</a>
 							</li>
 
 		
@@ -59,7 +59,7 @@
 							<li class="restaurant-list">
 								<a href="#">Restaurante</a>
 								<ul class="dropdownrestaurant">
-									<li><a href="restaurant-owner-dashboard.html">Adicionar restaurante</a></li>
+									<li><a href="?page=restaurantCreation">Adicionar restaurante</a></li>
 									<li><a href="restaurant-detail.html">Gerir restaurante</a></li>
 								</ul>
 							</li>
@@ -75,7 +75,7 @@
 						<ul class="nav-mini sign-in">
 							<li><a href="?page=login">login</a></li>
 							<li><a href="?page=registration">register</a></li>
-							<li><a href="#!" id="logout">logout</a></li>
+							<li><a href="#!" id="logout" hidden>logout</a></li>
 						</ul>
 					</div>
 
