@@ -13,8 +13,15 @@ password varchar(20) not null);
 CREATE TABLE IF NOT EXISTS Restaurant(
 id integer PRIMARY KEY AUTOINCREMENT,
 name varchar(50) not null,
+location varchar(50) not null,
 total number(5) not null,
 votes number(5) not null,
+description varchar(1000),
+openS number(2) not null,
+closeS number(2) not null,
+openFS number(2) not null,
+closeFS number(2) not null,
+price number(3) not null,
 imgSrc varchar(50),
 tipo varchar(50) not null,
 owner varchar(50) not null,
@@ -39,5 +46,5 @@ FOREIGN KEY (restaurant) REFERENCES Restaurant(name)
 );
 
 INSERT INTO User(name,username,age,email,password) VALUES('fui','fui',22,'fui','73405777e7815f65b16bee0d0513d182625d1d8e32207cf8ae15c93e44d843c4');
-INSERT INTO Restaurant(name,total,votes,imgSrc,tipo,owner) VALUES('BestBuy',3,1,'oi','indiano','fui');
-INSERT INTO Restaurant(name,total,votes,imgSrc,tipo,owner) VALUES('It43',2,1,'oi','brasileiro','fui');
+INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,imgSrc,tipo,owner) VALUES('BestBuy','Porto',3,1,'Adoramos servi-los',12,24,12,24,15,'oi','indiano','fui');
+INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,imgSrc,tipo,owner) VALUES('It43','Lisboa',2,1,'Venham comer de graça ou quase',18,4,0,0,10,'oi','brasileiro','fui');
