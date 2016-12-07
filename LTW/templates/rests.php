@@ -14,12 +14,12 @@
 				<span ><b>Procure um restaurante</b></span>
 				<div class="search-restaurant">
 					<div>
-						<input type="text" class="form-control" placeholder="Nome do restaurante" />
+						<input type="text" id="restName" placeholder="Nome do restaurante" />
 					</div>
 				
 				</div>
-				<div class="search-button">
-						<button class="btn">Procurar</button>
+				<div class="searchButton">
+						<button  type="button" id="searchButton">Procurar</button>
 				</div>
 			</div>
 		
@@ -35,31 +35,31 @@
 	
 		<div class="sorting-wrappper">
 			<hr>
-			<div class="Selector-content">		
+			<div class="Selector-content" id="Selector-content">		
 
 								<div class="localizationSelector Selector">
 									<label>Localização</label>
-									<select class="selectpicker form-control" >
-										<option value="0">Todos</option>
-										<option value="1">Lisboa</option>
-										<option value="2">Porto</option>
-										<option value="2">Coimbra</option>
-										<option value="4">Braga</option>
-										<option value="5">Vila Real</option>
-										<option value="6">Viseu</option>
+									<select id="locationSearch" class="selectpicker" >
+										<option value="Todos">Todos</option>
+										<option value="Lisboa">Lisboa</option>
+										<option value="Porto">Porto</option>
+										<option value="Coimbra">Coimbra</option>
+										<option value="Braga">Braga</option>
+										<option value="Vila Real">Vila Real</option>
+										<option value="Viseu">Viseu</option>
 									</select>
 								</div>
 								<div class="CuisineSelector Selector">
 									<label>Tipo de cozinha</label>
-									<select class="selectpicker show-tick form-control">
-										<option value="0">Todos</option>
-										<option value="1">Hamburger</option>
-										<option value="2">Frango</option>
-										<option value="3">Chinesa</option>
-										<option value="4">Fast Food</option>
-										<option value="5">Grill</option>
-										<option value="6">Indiana</option>
-										<option value="7">Italiana</option>
+									<select id="cuisineSearch"  class="selectpicker">
+										<option value="Todos">Todos</option>
+										<option value="Hamburger">Hamburger</option>
+										<option value="Frango">Frango</option>
+										<option value="Chinesa">Chinesa</option>
+										<option value="Fast Food">Fast Food</option>
+										<option value="Grill">Grill</option>
+										<option value="Indiana">Indiana</option>
+										<option value="Italiana">Italiana</option>
 									</select>
 								</div>
 

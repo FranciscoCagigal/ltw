@@ -46,7 +46,7 @@
 
 		
 							<li class="user-list">
-								<a href="user.html">Utilizador</a>
+								<a href="#">Utilizador</a>
 								<ul class="dropdownuser">
 									<li><a href="user-profile.html">Perfil do utilizador</a></li>
 									<li><a href="user-profile-update.html">Atualizar perfil</a></li>
@@ -60,16 +60,19 @@
 								<a href="#">Restaurante</a>
 								<ul class="dropdownrestaurant">
 									<li><a href="?page=restaurantCreation">Adicionar restaurante</a></li>
-									<li><a href="restaurant-detail.html">Gerir restaurante</a></li>
+									<li class="manageRest"><a href="#">Gerir restaurante</a>
+										<ul class="dropdownManager" id="dropdownManager">
+											
+										</ul>
+									</li>
 								</ul>
 							</li>
 
-							<li class="aboutus-list"><a href="about-us.html">Sobrenos</a></li>
-							<li class="contacts-list"><a href="contact.html">Contactos</a></li>
+							<li class="aboutus-list"><a href="?page=aboutUs#aboutUs">Sobrenos</a></li>
+							<li class="contacts-list"><a href="?page=aboutUs#contactUs">Contactos</a></li>
 						</ul>
 
 					</div>
-					<!--/.nav-collapse -->
 
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">

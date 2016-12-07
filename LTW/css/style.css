@@ -181,6 +181,16 @@ ul.navbar-nav li:hover a{
 	display:block;
 }
 
+.manageRest ul li a{
+	width:100px;
+}
+
+.manageRest:hover ul{
+	display:block;
+	margin-left:100%;
+	margin-top:-37%;
+}
+
 .restaurant-list{
 	position: relative;
 	display: inline-block;
@@ -190,10 +200,6 @@ ul.nav-mini.sign-in {
     margin-top: 1px;
 	position: relative;
     left: 550%;
-}
-
-ul.nav-mini.sign-in li:after {
-    /*display: none;*/
 }
 
 ul.nav-mini.sign-in li a {
@@ -210,6 +216,11 @@ ul.nav-mini.sign-in li a:hover {
     color: #FFF;
     background: #e7604a;
     border-color: #e7604a;
+}
+
+#manageRest:hover ul{
+	color:green;
+	display:block;
 }
 
 #fundo{
@@ -256,6 +267,21 @@ ul.nav-mini.sign-in li a:hover {
 	padding-left:10px;
 	padding-top:5px;
 	padding-bottom:5px;
+}
+
+.aboutUs-wrapper .container{
+	padding:2%;
+}
+
+.aboutUs-wrapper .container .FAQ h1{
+	color:red;
+	font-size: 250%;
+	padding:1%;
+}
+
+.aboutUs-wrapper .container .FAQ p{
+	color:brown;
+	font-size: 120%;
 }
 
 .row{

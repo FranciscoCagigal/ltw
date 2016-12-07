@@ -55,6 +55,45 @@
 				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description)==0)
 					$response_array['status'] = 'success';
 			}else $response_array['status'] = 'notLogged';
+			break;
+		
+		case 'usersRest':
+			if(isset($_SESSION['username'])){
+					if(($response_array['info']=restsOwner($dbh,$_SESSION['username']))!=null)
+					{
+						$response_array['status'] = 'success';
+					}
+			}
+			break;
+		
+		case 'restByName':
+			if(($response_array['info']=getRestByName($dbh,$jsonData->name))!=null)
+				{
+					$response_array['status'] = 'success';
+				}else $response_array['status'] = 'notFound';
+			break;
+			
+		case 'restByLocCui':
+			if($jsonData->location=='Todos'){
+				if(($response_array['info']=getRestByCuisine($dbh,$jsonData->cuisine))!=null)
+				{
+					$response_array['status'] = 'success';
+				}else $response_array['status'] = 'notFound';
+			}
+			else if($jsonData->cuisine=='Todos'){
+				if(($response_array['info']=getRestByLocation($dbh,$jsonData->location))!=null)
+				{
+					$response_array['status'] = 'success';
+				}else $response_array['status'] = 'notFound';
+			}
+			else{
+				if(($response_array['info']=getRestByCuisineAndLocation($dbh,$jsonData->cuisine,$jsonData->location))!=null)
+				{
+					$response_array['status'] = 'success';
+				}else $response_array['status'] = 'notFound';
+			}
+			
+			break;
 		
 		}
 		

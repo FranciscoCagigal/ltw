@@ -29,7 +29,7 @@
 				<div class="LastFooter">
 					<h3 class="column-title">Comer bem.</h3>
 					<ul class="column">
-						<li><a href="about-us.html">Sobre Nós</a></li>
+						<li><a href="?page=aboutUs">Sobre Nós</a></li>
 					</ul>
 				</div>
 
