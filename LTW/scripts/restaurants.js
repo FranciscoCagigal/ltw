@@ -28,16 +28,31 @@ $(function (){
 					myNode.removeChild(myNode.firstChild);
 				}
 			 if(data.status == 'success'){
-				
-				var resultHTML="";
+				var resultHTML = $.map(data.info,function(item,index){
+					var listItem = $('<li></li>');
+					var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
+					var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
+					var description = $('<p>'+item.description+'</p>');
+					description.appendTo(divDescription);
+					var divItem = $('<div class=restaurantItem></div>');
+					divItem.appendTo(listItem);
+					var sectionItem = $('<section id=' + item.id + '></section>');
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+item.total/item.votes+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+					imgDiv.appendTo(sectionItem);
+					divDescription.appendTo(sectionItem);
+					sectionItem.appendTo(divItem);
+					list.appendTo(sectionItem);
+					return listItem;
+				});
+				/*var resultHTML="";
 				for(var i=0;i<data.info.length;i++){
 				resultHTML+="<div class=RestaurantItem>";
 				resultHTML+="<section id="+data.info[i].id+"><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
 				resultHTML+="</div>";
-				}
+				}*/
 				//colocar
 				$('#restsList').append(resultHTML);
-				var numberResults="Foi encontrado "+i+" resultado(s)";
+				var numberResults="Foi encontrado "+data.info.length+" resultado(s)";
 				$('#results').append(numberResults);
 			 }
 			 else if(data.status == 'notFound'){
@@ -79,11 +94,28 @@ $(function (){
 					myNode.removeChild(myNode.firstChild);
 				}
 			 if(data.status == 'success'){
+				 
+			var resultHTML = $.map(data.info,function(item,index){
+				var listItem = $('<li></li>');
+				var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
+				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
+				var description = $('<p>'+item.description+'</p>');
+				description.appendTo(divDescription);
+				var divItem = $('<div class=restaurantItem></div>');
+				divItem.appendTo(listItem);
+				var sectionItem = $('<section id=' + item.id + '></section>');
+				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+item.total/item.votes+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+				imgDiv.appendTo(sectionItem);
+				divDescription.appendTo(sectionItem);
+				sectionItem.appendTo(divItem);
+				list.appendTo(sectionItem);
+				return listItem;
+			});
 				
-				var resultHTML="";
+				/*var resultHTML="";
 				resultHTML+="<div class=RestaurantItem>";
 				resultHTML+="<section id="+data.info[0].id+"><a href=index.php?page=rest"+"&id="+data.info[0].id+">"+data.info[0].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[0].total/data.info[0].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
-				resultHTML+="</div>";
+				resultHTML+="</div>";*/
 				//colocar
 				$('#restsList').append(resultHTML);
 				var numberResults="Foi encontrado 1 resultado";

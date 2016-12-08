@@ -74,17 +74,22 @@
 			break;
 			
 		case 'restByLocCui':
-			if($jsonData->location=='Todos'){
+			if($jsonData->location=='Todos' && $jsonData->cuisine!='Todos'){
 				if(($response_array['info']=getRestByCuisine($dbh,$jsonData->cuisine))!=null)
 				{
 					$response_array['status'] = 'success';
 				}else $response_array['status'] = 'notFound';
 			}
-			else if($jsonData->cuisine=='Todos'){
+			else if($jsonData->cuisine=='Todos' && $jsonData->location!='Todos'){
 				if(($response_array['info']=getRestByLocation($dbh,$jsonData->location))!=null)
 				{
 					$response_array['status'] = 'success';
 				}else $response_array['status'] = 'notFound';
+			}
+			else if($jsonData->cuisine=='Todos' && $jsonData->location=='Todos'){
+				if(($response_array['info']=getAllRestaurantsInfo($dbh))!=null){
+					$response_array['status'] = 'success';
+				}
 			}
 			else{
 				if(($response_array['info']=getRestByCuisineAndLocation($dbh,$jsonData->cuisine,$jsonData->location))!=null)

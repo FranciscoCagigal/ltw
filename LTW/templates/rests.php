@@ -62,7 +62,6 @@
 											echo "<option value=Todos>Todos</option>";
 											echo "<option value=Lisboa>Lisboa</option>";
 											echo "<option value=Porto>Porto</option>";
-											echo "<option value=Porto>Porto</option>";
 											echo "<option value=Coimbra>Coimbra</option>";
 											echo "<option value=Braga>Braga</option>";
 											echo "<option value=Vila Real>Vila Real</option>";
