@@ -1,4 +1,3 @@
-
 html,
 body,
 div,
@@ -219,6 +218,54 @@ ul.nav-mini.sign-in li a:hover {
     border-color: #e7604a;
 }
 
+.restaurantItem section{
+	display:inline-flex;
+	text-align:left;
+	background-color:#C6C6C6;
+	margin-bottom:1%;
+	width:620px;
+}
+
+.descriptionRest{
+	box-sizing: margin-box;
+	width:300px;
+}
+
+.descriptionRest{
+	padding-left:3%;
+	padding-top:1%;
+}
+
+.descriptionRest a{
+	color:red;
+	font-size:150%;
+	display: block;
+	padding-bottom:1%;
+	text-align:center;	
+}
+
+.descriptionRest p{
+	padding-left:10%;
+	font-size:70%;	
+}
+
+.restsList > ul{
+	margin-top:3%;
+	padding-left:3%;
+	list-style:none;
+	text-align:center;
+}
+
+.restList {
+	width:200px;
+	list-style:none;
+	margin-bottom:3%;
+}
+
+.restList span {
+	font-weight:bold;
+}
+
 #manageRest:hover ul{
 	color:green;
 	display:block;
@@ -291,6 +338,7 @@ ul.nav-mini.sign-in li a:hover {
 }
 
 .search-restaurant-wrapper .container{
+	padding-top:30px;
 	text-align:center;
 }
 

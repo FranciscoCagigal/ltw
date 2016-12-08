@@ -117,7 +117,9 @@
 		
 		<hr>
 		<div class="restsContainer">
-			<div id="restsList">
+			<div class="restsList">
+				<ul id="restsList">
+				</ul>
 			</div>
 		</div>
 		
