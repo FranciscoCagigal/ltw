@@ -3,8 +3,6 @@ $(function (){
 	$('#Selector-content').on('change',function(){
 		var locationRest = $("#locationSearch").val();
 		var cuisine = $("#cuisineSearch").val();
-		console.log(locationRest);
-		console.log(cuisine);
 		var restData =
 			{
 			  'dicionario':'restByLocCui',
@@ -34,12 +32,12 @@ $(function (){
 				var resultHTML="";
 				for(var i=0;i<data.info.length;i++){
 				resultHTML+="<div class=RestaurantItem>";
-				resultHTML+="<p><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a></p><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></>" ;
+				resultHTML+="<section id="+data.info[i].id+"><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
 				resultHTML+="</div>";
 				}
 				//colocar
 				$('#restsList').append(resultHTML);
-				var numberResults="Foi encontrado 1 resultado";
+				var numberResults="Foi encontrado "+i+" resultado(s)";
 				$('#results').append(numberResults);
 			 }
 			 else if(data.status == 'notFound'){
@@ -84,7 +82,7 @@ $(function (){
 				
 				var resultHTML="";
 				resultHTML+="<div class=RestaurantItem>";
-				resultHTML+="<p><a href=index.php?page=rest"+"&id="+data.info[0].id+">"+data.info[0].name +"</a></p><p>"+data.info[0].total/data.info[0].votes+"<img src=images/restaurant/star.png width=30></>" ;
+				resultHTML+="<section id="+data.info[0].id+"><a href=index.php?page=rest"+"&id="+data.info[0].id+">"+data.info[0].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[0].total/data.info[0].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
 				resultHTML+="</div>";
 				//colocar
 				$('#restsList').append(resultHTML);
@@ -109,7 +107,16 @@ $(function (){
 	
 	//load da pagina
 	$('load',function(){
-    var restData =
+		
+	var locationRest = $("#locationSearch").val();
+	var cuisine = $("#cuisineSearch").val();
+	
+	if(locationRest!='Todos'||cuisine!='Todos'){
+		console.log('passeui aqui');
+		$('#Selector-content').change(); //forçar evento
+	}
+	else{
+		var restData =
     {
 	  'dicionario':'allRestaurants'
     }
@@ -126,7 +133,7 @@ $(function (){
 			
 			for(var i=0;i<data.info.length;i++){
 				resultHTML+="<div class=RestaurantItem>";
-				resultHTML+="<p><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a></p><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></>" ;
+				resultHTML+="<section id="+data.info[i].id+"><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a><ul class=restList><li><span>Classificação Média: </span>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></></li></ul></section>" ;
 				resultHTML+="</div>";
 			}
 			$('#restsList').append(resultHTML);
@@ -140,6 +147,8 @@ $(function (){
 		}).fail(function(e) {
 		console.log(e);
 	});
+	}
+	
 });
 });
 

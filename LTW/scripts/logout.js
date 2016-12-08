@@ -50,9 +50,6 @@ $(function (){
 		}).fail(function(e) {
 		console.log(e);
 	});
-
-	
-	
 	
 	
   $("#logout").on('click' , function(){

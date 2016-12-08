@@ -8,21 +8,19 @@
 				<div class="citySearch LastFooter">
 					<h3 class="column-title">Pesquise restaurantes por cidade</h3>
 					<ul class="column">
-						<li><a href="#">Procure restaurantes em Lisboa</a></li>
-						<li><a href="#">Procure restaurantes no Porto</a></li>
-						<li><a href="#">Procure restaurantes em Coimbra</a></li>
+						<li><a href="?page=rests&location=Lisboa">Procure restaurantes em Lisboa</a></li>
+						<li><a href="?page=rests&location=Porto">Procure restaurantes no Porto</a></li>
+						<li><a href="?page=rests&location=Coimbra">Procure restaurantes em Coimbra</a></li>
 					</ul>
 				</div>
 				<div class="cuisineSearch LastFooter">
 					<h3 class="column-title">Pesquise restaurantes por tipo de cozinha </h3>
-					<ul class="column">
-						<li><a href="all-cuisines.html">Todos os tipos de cozinha</a></li>
-						<li><a href="#">Cozinha portuguesa</a></li>
-						<li><a href="#">Cozinha italiana</a></li>
-						<li><a href="#">Cozinha chinesa</a></li>
-						<li><a href="#">Cozinha francesa</a></li>
-						<li><a href="#">Tapas</a></li>
-						<li><a href="#">Snacks</a></li>
+					<ul class="column searchingBar">
+						<li><a href="?page=rests">Todos os tipos de cozinha</a></li>
+						<li><a href="?page=rests&cuisine=Italiana">Cozinha italiana</a></li>
+						<li><a href="?page=rests&cuisine=Chinesa">Cozinha chinesa</a></li>
+						<li><a href="?page=rests&cuisine=Grill">Grill</a></li>
+						<li><a href="?page=rests&cuisine=Indiana">Indiana</a></li>
 					</ul>
 				</div>
 
