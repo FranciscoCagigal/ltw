@@ -83,7 +83,6 @@ video {
     font-size: 100%;
     font-family: inherit;
     vertical-align: baseline;
-    zoom: 1;
 }
 
 img { vertical-align: top; }
@@ -430,6 +429,33 @@ ul.nav-mini.sign-in li a:hover {
 .restDescription p{
 	text-align:left;
 	padding-left:7%;
+}
+
+.tabels {
+	margin:3%;
+	display:inline-flex;
+}
+
+.home-container{
+	text-align:center;
+}
+
+.rating5-wrapper{
+	margin-right:1%;
+}
+
+.rating-title, .comment-title{
+	color:blue;
+	margin-bottom:5%;
+	font-size:150%;
+}
+
+.rating5-wrapper li{
+	list-style:none;
+}
+
+.comment5-wrapper li{
+	list-style:none;
 }
 
 .rating-container{

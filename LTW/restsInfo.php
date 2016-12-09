@@ -63,5 +63,12 @@
 		else return null;	
 	}
 	
+	function getRestTop5Rating($dbh){
+		$stmt = $dbh->prepare('SELECT * FROM Restaurant ORDER BY total/votes DESC LIMIT 5;');
+		if($stmt->execute())
+			return $stmt->fetchAll();
+		else return null;	
+	}
+	
 	
 ?>

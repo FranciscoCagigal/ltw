@@ -200,5 +200,8 @@ $(function (){
 });
 });
 
+function pagination(itemsArray){
+	var nrPages = Math.ceil(itemsArray.length/10);
+}
 
 

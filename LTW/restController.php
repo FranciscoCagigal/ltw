@@ -106,6 +106,13 @@
 					$response_array['status'] = 'success';
 				}else $response_array['status'] = 'notFound';
 			break;
+			
+		case 'ratingTop5':
+				if(($response_array['info']=getRestTop5Rating($dbh))!=null)
+				{
+					$response_array['status'] = 'success';
+				}
+			break;
 		
 		}
 		
