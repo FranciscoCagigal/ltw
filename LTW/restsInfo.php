@@ -29,6 +29,13 @@
 		else return null;	
 	}
 	
+	function getRestById($dbh,$id){
+		$stmt = $dbh->prepare('SELECT * FROM Restaurant WHERE id = ?;');
+		if($stmt->execute(array($id)))
+			return $stmt->fetchAll();
+		else return null;	
+	}
+	
 	function getRestByName($dbh,$name){
 		$stmt = $dbh->prepare('SELECT * FROM Restaurant WHERE name = ?;');
 		if($stmt->execute(array($name)))

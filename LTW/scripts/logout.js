@@ -27,7 +27,6 @@ $(function (){
 			}).done(function(data) {
 				
 			 if(data.status == 'success'){
-				console.log(data.info);
 				
 				var htmlString="";
 				for(var i=0;i<data.info.length;i++){
@@ -65,7 +64,6 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(userData)
 		}).done(function(data) {
-			console.log(data);
 		 if(data.status == 'success'){
 			document.location.href='index.php',true;
 		 }

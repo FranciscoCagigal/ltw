@@ -86,6 +86,8 @@ video {
     zoom: 1;
 }
 
+img { vertical-align: top; }
+
 a {
     text-decoration: none;
 }
@@ -392,9 +394,51 @@ ul.nav-mini.sign-in li a:hover {
 	margin-left:1%;
 }
 
+.restaurant-content{
+	text-align:center;
+}
 
+.restPrimary {
+	display:block;
+	width:800px;
+	display: inline-flex;
+}
+
+.restDescription{
+	margin-left:10%;
+	margin-right:10%;
+}
+
+.restImage, .restAttr {
+	padding:1%;
+	text-align:left;
+	margin-top:10%;
+	border:solid;
+	border-color:gray;
+	margin-bottom:10%;
+}
+
+.restDescription a{
+	font-size:290%;
+	font-weight:bold;
+	display: block;
+	padding-bottom:20%;
+	margin-top:10%;
+	
+}
+
+.restDescription p{
+	text-align:left;
+	padding-left:7%;
+}
+
+.rating-container{
+	 display: table;
+  margin: auto;
+}
 
 .rating {
+	box-sizing: border-box;
     width:160px;
 }
 .rating span { float:right; position:relative; }
@@ -453,3 +497,4 @@ footer{
 .bottom-footer{
 	margin-top:5%;
 }
+

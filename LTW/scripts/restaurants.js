@@ -51,7 +51,7 @@ $(function (){
 				resultHTML+="</div>";
 				}*/
 				//colocar
-				$('#restsList').append(resultHTML);
+				$('#restsList').html(resultHTML);
 				var numberResults="Foi encontrado "+data.info.length+" resultado(s)";
 				$('#results').append(numberResults);
 			 }

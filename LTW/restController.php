@@ -99,6 +99,13 @@
 			}
 			
 			break;
+			
+		case 'restById':
+				if(($response_array['info']=getRestById($dbh,$jsonData->id))!=null)
+				{
+					$response_array['status'] = 'success';
+				}else $response_array['status'] = 'notFound';
+			break;
 		
 		}
 		
