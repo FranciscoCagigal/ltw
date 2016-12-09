@@ -8,7 +8,7 @@
 
 	<div class="container">
 	
-		<form>
+		<form method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Informações do restaurante:</legend>
 
@@ -47,8 +47,9 @@
 					<label><b>Média de preços</b></label><br>
 					<input type="number" placeholder="Preço praticado"  id='price'/><br>
 					
-					<input type="file" id="myFile" />
-					<input type="button" id="upload" value="upload" />
+				    <p>Selecione imagem do restaurante:</p>
+				    <input type="file" name="fileToUpload" id="fileToUpload">
+				    <input type="button" value="Upload Image" onclick="uploadFile()" >
 					<div id="imageUp">
 					</div>
 				</div>

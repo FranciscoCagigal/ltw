@@ -1,18 +1,18 @@
 $(function (){
-  $('#upload').on('click',function(){
-	  console.log('oi');
-	 $('#myFile').upload('xhr2.php',function(success){
-	 console.log('done');},$('#prog'));
-	 console.log($('#myFile'));
-	 var tmppath = URL.createObjectURL($('#myFile')[0].files[0]);
-	 console.log(tmppath);
-	 var imageUp= "<img alt=oi src="+tmppath+">";
-	 $('#imageUp').append(imageUp);
-	 });
+  // $('#upload').on('click',function(){
+	 //  console.log('oi');
+	 // $('#myFile').upload('xhr2.php',function(success){
+	 // console.log('done');},$('#prog'));
+	 // console.log($('#myFile'));
+	 // var tmppath = URL.createObjectURL($('#myFile')[0].files[0]);
+	 // console.log(tmppath);
+	 // var imageUp= "<img alt=oi src="+tmppath+">";
+	 // $('#imageUp').append(imageUp);
+	 // });
 	
 
   $("#submit").on('click' , function(){
-
+console.log('oi');
 	var name=$('#name').val();
     var locationRes=$('#location').val();
 	var type=$('#type').val();
@@ -141,3 +141,13 @@ $.fn.upload = function(remote, data, successFn, progressFn) {
 
 	return def.promise();
 };
+
+function uploadFile(){
+	var file = $('#fileToUpload')[0].files[0];
+	var formdata = new FormData();
+	formdata.append("fileToUpload", file);
+	console.log(formdata);
+	var ajax = new XMLHttpRequest();
+	ajax.open("POST", "upload.php");
+	ajax.send(formdata);
+}
