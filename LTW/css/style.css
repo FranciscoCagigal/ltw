@@ -444,6 +444,19 @@ ul.nav-mini.sign-in li a:hover {
 	margin-right:1%;
 }
 
+.pagination-wrapper{
+	height:23px;
+}
+
+.pagination ul{
+	text-align:center;
+}
+
+.pagination ul li{
+	display: inline;
+	margin:3px;
+}
+
 .rating-title, .comment-title{
 	color:blue;
 	margin-bottom:5%;
