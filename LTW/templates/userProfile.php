@@ -13,7 +13,7 @@
 					<div class="inputs-perfil">
 						<div>
 							<span><label><b>Name</b></label>
-							<input type="text" id="name" value="Nome" disabled /></span><br>
+							<input type="text" id="name" value="" disabled /></span><br>
 							<span><label><b>Age</b></label>
 							<input type="text" id="age" value="Age" disabled /></span><br>
 							<span><label><b>Email</b></label>
@@ -22,7 +22,7 @@
 					
 					</div>
 					<div class="editButton">
-							<button id="editBtn" type="button">Editar</button>
+							<button id="editBtn" type="button" hidden>Editar</button>
 							<button id="saveEdit" type="button" hidden>Guardar Alterações</button>
 					</div>
 				</div>

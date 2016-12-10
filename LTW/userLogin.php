@@ -7,5 +7,12 @@
 		return 0;
 	else return 1;
 	}
+	
+	function userInfo($dbh,$username){
+		$stmt = $dbh->prepare('SELECT * FROM User WHERE username = ?;');
+		if($stmt->execute(array($username)))
+			return $stmt->fetchall();
+		else return null;
+	}
 
 ?>
