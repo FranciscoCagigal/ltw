@@ -19,7 +19,7 @@
 				
 				</div>
 				<div class="searchButton">
-						<button  type="button" id="searchButton">Procurar</button>
+						<button  type="button" id="searchButton" >Procurar</button>
 				</div>
 			</div>
 		
@@ -124,44 +124,25 @@
 		
 		<hr>
 		
-		<div class="restaurant-wrapper">
+		<div class="pagination-wrapper">
 		
-			<div class="row">
+			<div class="pagination-content">
 			
-				<div class="col-sm-8 col-md-9 mt-25">
-				
-					<div class="restaurant-list-wrapper">
-										
-					<div class="pager-wrapper">
+				<div class="pagination">
 					
-						<ul class="pager-list">
-							<li class="paging-nav"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-							<li class="paging-nav"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-							<li class="number">
-								<span class="mr-5"><span class="font600">page</span></span>
-							</li>
-							<li class="form">
-								<form>
-									<input type="text" value="1" class="form-control"> 
-								</form>
-							</li>
-							<li class="number">
-								<span class="mr-5">/</span> <span class="font600">79</span>
-							</li>
-							<li class="paging-nav"><a href="#">go</a></li>
-							<li class="paging-nav"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-							<li class="paging-nav"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-						</ul>	
+					<ul id="pagination" class="pager-list">		
+					</ul>	
 					
-					</div>
+				</div>
 					
 				</div>
 			
-			</div>
+		</div>
 			
 		</div>
 
 	</div>
 
+</div>
 </div>
 </div>
