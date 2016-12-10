@@ -52,7 +52,8 @@
 		
 		case 'createRestaurant':
 			if(isset($_SESSION['username'])){
-				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description)==0)
+				error_log($jsonData->image);
+				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description,$jsonData->image)==0)
 					$response_array['status'] = 'success';
 			}else $response_array['status'] = 'notLogged';
 			break;

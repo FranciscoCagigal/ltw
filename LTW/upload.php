@@ -1,5 +1,5 @@
 <?php
-$target_dir = 'uploads/';
+$target_dir = 'images/restsLogo/';
 $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -45,7 +45,7 @@ if ($uploadOk == 0) {
     } else {
         $response_array['status'] = 'File was not uploaded.';
     }
-    
+
     header("Content-Type: application/json", true);
     echo json_encode($response_array);
 }
