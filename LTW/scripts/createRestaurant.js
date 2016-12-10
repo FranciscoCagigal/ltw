@@ -146,8 +146,15 @@ function uploadFile(){
 	var file = $('#fileToUpload')[0].files[0];
 	var formdata = new FormData();
 	formdata.append("fileToUpload", file);
-	console.log(formdata);
-	var ajax = new XMLHttpRequest();
-	ajax.open("POST", "upload.php");
-	ajax.send(formdata);
+	$.ajax({
+		type: 'post',
+        url: 'upload.php',
+        cache: false,
+       	contentType: false,
+       	processData: false,
+        data: formdata,
+        success: function (data) {
+        	console.log(data.name);
+    }
+	});
 }
