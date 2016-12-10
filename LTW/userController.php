@@ -42,10 +42,38 @@
 			if(isset($_SESSION['username']))
 			{	
 				$response_array['status'] = 'success';
+				$response_array['info'] = $_SESSION['username'];
 			}
 			else $response_array['status'] = 'not';
 			break;
+			
+		case 'amILogged':
+			if(isset($_SESSION['username'])&&$_SESSION['username']==$jsonData->user)
+			{	
+				$response_array['status'] = 'success';
+			}else  $response_array['status'] = 'userNotLogged';
+			break;
+		
+		case 'userInfo':
+			if(($response_array['info']=userInfo($dbh,$jsonData->user))!=null){
+				$response_array['status']='success';
+				if(isset($_SESSION['username'])&&$_SESSION['username']==$jsonData->user)
+				{	
+					$response_array['myUser'] = true;
+				}else $response_array['myUser'] = false;
+			}else $response_array['status']='notFound';
+			break;
+			
+		case 'updateUser':
+			if(isset($_SESSION['username']) && $_SESSION['username']==$jsonData->user)
+			{	
+				if(updateUser($dbh,$jsonData->name,$jsonData->user,$jsonData->age,$jsonData->email)==0)
+					$response_array['status'] = 'success';
+			}else  $response_array['status'] = 'userNotLogged';
+			break;
 		}
+		
+		
 	}
 	echo json_encode($response_array);
 ?>

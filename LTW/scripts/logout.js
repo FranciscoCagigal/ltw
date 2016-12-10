@@ -11,8 +11,8 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(userData)
 		}).done(function(data) {
-			console.log(data);
 		 if(data.status == 'success'){
+			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info);
 			document.getElementById("logout").removeAttribute("hidden");
 			var userData =
 			{
@@ -25,7 +25,7 @@ $(function (){
 			dataType: "json",
 			data: JSON.stringify(userData)
 			}).done(function(data) {
-				
+				console.log(data);
 			 if(data.status == 'success'){
 				
 				var htmlString="";
@@ -41,7 +41,7 @@ $(function (){
 				}).fail(function(e) {
 				console.log(e);
 			});
-		 } //final do 2º ajax
+		 } 
 		 else if(data.status == 'serverIssues'){
 			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
 		 }

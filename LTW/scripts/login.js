@@ -20,8 +20,9 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(userData)
 		}).done(function(data) {
-			console.log(data);
+			
 		 if(data.status == 'success'){
+			 //console.log(data);
 			document.location.href='index.php?page=rests',true;
 			
 		 }

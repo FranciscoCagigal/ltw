@@ -5,7 +5,7 @@
 	
 	<!-- Title Of Site -->
 	<title>Just food.</title>
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="scripts/logout.js" type="text/javascript"></script>
 
 	<!-- CSS Custom -->
@@ -48,7 +48,7 @@
 							<li class="user-list">
 								<a href="#">Utilizador</a>
 								<ul class="dropdownuser">
-									<li><a href="user-profile.html">Perfil do utilizador</a></li>
+									<li><a id="linkToProfile" href="">Perfil do utilizador</a></li>
 									<li><a href="user-profile-update.html">Atualizar perfil</a></li>
 									<li><a href="user-favourite-restaurant.html">Restaurante favorito</a></li>
 									<li><a href="user-change-pass.html">Alterar Password</a></li>
