@@ -200,8 +200,12 @@ $(function (){
 });
 });
 
-function pagination(itemsArray){
-	var nrPages = Math.ceil(itemsArray.length/10);
+function pagination(itemsArray,sizePerPage){
+	var nrPages = Math.ceil(itemsArray.length/sizePerPage);
+	var resultHTML="";
+	for(var i=0;i<nrPages;i++){
+		resultHTML+='<li><a href=?page=rests&offset='+(i+1)+'>'+(i+1)+'</a></li>';
+	}
+	
+	return resultHTML;
 }
-
-
