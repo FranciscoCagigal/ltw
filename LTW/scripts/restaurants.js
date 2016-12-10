@@ -1,12 +1,4 @@
 $(function (){
-	var sizePerPage =1;
-	
-	$('#restName').on('keydown', function(e) {
-		if (e.which == 13) {
-			$('#searchButton').click();
-			e.preventDefault();
-		}
-	});	
 	
 	$('#Selector-content').on('change',function(){
 		var locationRest = $("#locationSearch").val();
@@ -35,25 +27,8 @@ $(function (){
 				while (myNode.firstChild) {
 					myNode.removeChild(myNode.firstChild);
 				}
-				myNode = document.getElementById("pagination");
-				while (myNode.firstChild) {
-					myNode.removeChild(myNode.firstChild);
-				}
-				
-				
 			 if(data.status == 'success'){
-				 
-				
-				var pages=pagination(data.info,sizePerPage);
-				var pageSet;
-				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.info.length){
-					pageSet=1;
-				}
-				
-				var pageDisplayed= data.info.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);	
-				 
-				 
-				var resultHTML = $.map(pageDisplayed,function(item,index){
+				var resultHTML = $.map(data.info,function(item,index){
 					var listItem = $('<li></li>');
 					var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
 					var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
@@ -69,8 +44,12 @@ $(function (){
 					list.appendTo(sectionItem);
 					return listItem;
 				});
-				
-				$('#pagination').append(pages);
+				/*var resultHTML="";
+				for(var i=0;i<data.info.length;i++){
+				resultHTML+="<div class=RestaurantItem>";
+				resultHTML+="<section id="+data.info[i].id+"><a href=index.php?page=rest"+"&id="+data.info[i].id+">"+data.info[i].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
+				resultHTML+="</div>";
+				}*/
 				//colocar
 				$('#restsList').html(resultHTML);
 				var numberResults="Foi encontrado "+data.info.length+" resultado(s)";
@@ -114,23 +93,9 @@ $(function (){
 				while (myNode.firstChild) {
 					myNode.removeChild(myNode.firstChild);
 				}
-				myNode = document.getElementById("pagination");
-				while (myNode.firstChild) {
-					myNode.removeChild(myNode.firstChild);
-				}
-				
-				
 			 if(data.status == 'success'){
 				 
-				var pages=pagination(data.info,sizePerPage);
-				var pageSet;
-				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.info.length){
-					pageSet=1;
-				}
-				
-				var pageDisplayed= data.info.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);				 
-				 
-			var resultHTML = $.map(pageDisplayed,function(item,index){
+			var resultHTML = $.map(data.info,function(item,index){
 				var listItem = $('<li></li>');
 				var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
 				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
@@ -147,7 +112,11 @@ $(function (){
 				return listItem;
 			});
 				
-				$('#pagination').append(pages);
+				/*var resultHTML="";
+				resultHTML+="<div class=RestaurantItem>";
+				resultHTML+="<section id="+data.info[0].id+"><a href=index.php?page=rest"+"&id="+data.info[0].id+">"+data.info[0].name +"</a><ul class=restList><span>Classificação Média: </span><p>"+data.info[0].total/data.info[0].votes+"<img src=images/restaurant/star.png width=30></></ul></section>" ;
+				resultHTML+="</div>";*/
+				//colocar
 				$('#restsList').append(resultHTML);
 				var numberResults="Foi encontrado 1 resultado";
 				$('#results').append(numberResults);
@@ -191,16 +160,7 @@ $(function (){
 		data: JSON.stringify(restData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
-			 
-			var pages=pagination(data.info,sizePerPage);
-			var pageSet;
-			if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.info.length){
-				pageSet=1;
-			}
-			
-			var pageDisplayed= data.info.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);				
-			
-			var resultHTML = $.map(pageDisplayed,function(item,index){
+			var resultHTML = $.map(data.info,function(item,index){
 				var listItem = $('<li></li>');
 				var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
 				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
@@ -217,8 +177,13 @@ $(function (){
 				return listItem;
 			});
 			
+			/*var resultHTML="";
 			
-			$('#pagination').append(pages);
+			for(var i=0;i<data.info.length;i++){
+				resultHTML+="<div class=RestaurantItem>";
+				resultHTML+="<section id="+data.info[i].id+"><a href=index.php?page=rest&id="+data.info[i].id+">"+data.info[i].name +"</a><ul class=restList><li><span>Classificação Média: </span>"+data.info[i].total/data.info[i].votes+"<img src=images/restaurant/star.png width=30></></li><li><span>Localização: </span>"+data.info[i].location+"</li></ul></section>" ;
+				resultHTML+="</div>";
+			}*/
 			$('#restsList').html(resultHTML);
 			var numberResults="Foram encontrados "+ data.info.length + " resultados";
 			$('#results').append(numberResults);
@@ -235,14 +200,8 @@ $(function (){
 });
 });
 
-function pagination(itemsArray,sizePerPage){
-	var nrPages = Math.ceil(itemsArray.length/sizePerPage);
-	var resultHTML="";
-	for(var i=0;i<nrPages;i++){
-		resultHTML+='<li><a href=?page=rests&offset='+(i+1)+'>'+(i+1)+'</a></li>';
-	}
-	
-	return resultHTML;
+function pagination(itemsArray){
+	var nrPages = Math.ceil(itemsArray.length/10);
 }
 
 
