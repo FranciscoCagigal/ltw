@@ -28,7 +28,7 @@
 
 					<div class="logo-wrapper">
 						<div class="logo">
-							<a href="index.php"><img src="images/restaurant/logo.png" alt="Logo" width="150" /></a>
+							<a href="index.html"><img src="images/restaurant/logo.png" alt="Logo" width="150" /></a>
 						</div>
 					</div>
 
