@@ -444,9 +444,16 @@ ul.nav-mini.sign-in li a:hover {
 	margin-right:1%;
 }
 
+.profile-wrapper{
+	margin:0%;
+	
+	padding:5% 20% 5% 20%;
+	
+}
+
 .profile-container{
+	
 	text-align:center;
-	margin:3%;
 	border:solid;
 }
 

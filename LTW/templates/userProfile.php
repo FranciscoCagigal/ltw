@@ -1,6 +1,6 @@
 <script src="scripts/editProfile.js" type="text/javascript"></script>
 
-<div class="fundo">
+<div id	="fundo">
 <!-- start Main Wrapper -->
 <div class="main-wrapper">
 
