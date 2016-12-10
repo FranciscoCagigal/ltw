@@ -444,6 +444,35 @@ ul.nav-mini.sign-in li a:hover {
 	margin-right:1%;
 }
 
+.profile-container{
+	text-align:center;
+	margin:3%;
+	border:solid;
+}
+
+.editButton{
+	text-align:right;
+	margin:2%;
+	margin-right:33%;
+}
+
+.profile > span{
+	font-size:150%;
+	margin:2%;
+	display:block;
+	color:red;
+}
+
+.inputs-perfil label{
+	width:70px;
+	display:inline-block;
+}
+
+.inputs-perfil span{
+	display:inline-block;
+	margin:2%;
+}
+
 .pagination-wrapper{
 	height:23px;
 }
