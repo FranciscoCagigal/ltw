@@ -2,9 +2,24 @@ $(function (){
 		
 	$('#imgToUpload').on('change',function(){
 		var file = $('#imgToUpload')[0].files[0];
-		var tmppath = URL.createObjectURL(file);
-		var resultHtml='<figure class=userUpload><img src='+tmppath+' width=200px height=200px;/></figure>';
-		$('#appendImgHere').empty().append(resultHtml);
+		
+		if(file.type.match(/image\/(jpeg|png|jpg|gif)/)!=null)
+		{
+			if(file.size<5000000){
+				var tmppath = URL.createObjectURL(file);
+				var resultHtml='<figure class=userUpload><img src='+tmppath+' width=200px height=200px;/></figure>';
+				$('#appendImgHere').empty().append(resultHtml);
+			}
+			else{
+				$('#imgToUpload').val('');
+				alert('Imagem demasiado grande');
+			}
+			
+		}
+		else{
+			$('#imgToUpload').val('');
+			alert('Formato não suportado');
+		}
 	});	
 		
 	//load da pagina
