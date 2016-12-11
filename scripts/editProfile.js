@@ -1,15 +1,14 @@
 $(function (){
 		
 	$('#imgToUpload').on('change',function(){
-		console.log('oi');
 		var file = $('#imgToUpload')[0].files[0];
 		var tmppath = URL.createObjectURL(file);
-		var resultHtml='<figure class=userUpload><img src='+tmppath+' width=120px height=120px;/></figure>';
-		$('#appendImgHere').append(resultHtml);
+		var resultHtml='<figure class=userUpload><img src='+tmppath+' width=200px height=200px;/></figure>';
+		$('#appendImgHere').empty().append(resultHtml);
 	});	
 		
 	//load da pagina
-	$('load',function(event){
+	$('load',function(){
 	var index=document.location.href.split('user=')[1].search(/[#&]/);
 	var user;
 	if(index!=-1){
@@ -30,7 +29,8 @@ $(function (){
 		data: JSON.stringify(restData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
-			 console.log(data);
+			 var resultHtml='<figure class=userUpload><img src='+data.info[0].imgSrc+' width=200px height=200px;/></figure>';
+			 $('#appendImgHere').append(resultHtml);
 			 $('#name').prop('value',data.info[0].name);
 			 $('#age').prop('value',data.info[0].age);
 			 $('#email').prop('value',data.info[0].email);
@@ -38,6 +38,7 @@ $(function (){
 			 {
 				 $('#editBtn').removeAttr('hidden');
 				 $('.changePasswordDiv').removeAttr('hidden');
+				 $('#imgToUpload').removeAttr('hidden');
 			 }
 		 }
 		 else if(data.status == 'notFound'){
@@ -134,7 +135,7 @@ $(function (){
 	});
 	
 	$('#saveEdit').on('click',function(){
-		
+			
 		var name=$('#name').val();
 		var age=$('#age').val();
 		var email=$('#email').val();
@@ -142,12 +143,24 @@ $(function (){
 		if(email==""||age==""||name==""){
 			console.log('Todos os campos devem estar preenchidos');
 		}else{
+			var imgSrc='images/usersProfile/none.png';
+			if($('#imgToUpload')[0].files.length>0){
+				$.getScript('scripts/createRestaurant.js', function (data) {
+					var imageSrc;
+					uploadFile('images/usersProfile/',$('#imgToUpload')[0].files[0],function(imageSrc){
+					imgSrc=imageSrc;
+					console.log(imgSrc)});
+				});
+			}
+			setTimeout(function(){
+			console.log('yolo'+imgSrc);
 			var userData =
 				{
 				  'dicionario':'updateUser',
 				  'name': name,
 				  'age': age,
 				  'email': email,
+				  'imgSrc':imgSrc,
 				  'user': document.location.href.split('user=')[1]
 				}
 				$.ajax({
@@ -157,6 +170,7 @@ $(function (){
 					dataType: "json",
 					data: JSON.stringify(userData)
 					}).done(function(data) {
+						console.log(data);
 						if(data.status='success'){
 							$('#name').prop('disabled',true);
 							$('#age').prop('disabled',true);
@@ -169,7 +183,7 @@ $(function (){
 						 }
 					}).fail(function(e) {
 					console.log(e);
-				});
+			});},500);
 		}
 	});
 });

@@ -9,9 +9,9 @@
 	else return 1;
 	}
 	
-	function updateUser($dbh,$name,$user,$age,$email) {
-	$stmt = $dbh->prepare('UPDATE User SET name=?, age=?,email=? WHERE username=?;');
-    if($stmt->execute(array($name,$age,$email,$user)))
+	function updateUser($dbh,$name,$user,$age,$email,$imgSrc) {
+	$stmt = $dbh->prepare('UPDATE User SET name=?, age=?,email=?,imgSrc=? WHERE username=?;');
+    if($stmt->execute(array($name,$age,$email,$imgSrc,$user)))
 		return 0;
 	else return 1;
 	}

@@ -21,8 +21,8 @@
 								<input type="text" id="email" value="" disabled /></span>
 							</div>
 							<div class="inline-perfil">
+								<input type="file" hidden id="imgToUpload"/>
 								<div id="appendImgHere" class="image-perfil">
-								<input type="file" id="imgToUpload"/></span>
 								</div>
 							</div>
 						</div>

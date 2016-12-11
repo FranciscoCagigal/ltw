@@ -20,12 +20,13 @@ $(function (){
     var closeFS=$('#closeFS').val();
 	var price=$('#price').val();
 	
-    if (name==""||locationRes == ""||type == ""||openS == ""||closeS == ""||openFS == ""||closeFS == ""||price == "")
+    if (name==""||locationRes == ""||type == ""||openS == ""||closeS == ""||openFS == ""||closeFS == ""||price == ""||$('#fileToUpload')[0].files.length==0)
       alert("All fields must be filled for registration");
     else {
 	if($('#fileToUpload')[0].files.length>0)
 	{
-		uploadFile();
+		var imageSource;
+		uploadFile('images/restsLogo/', $('#fileToUpload')[0].files[0],function(imageSource){image.value=imageSource});
 	}
 	if(description==null)
 		description="";
@@ -69,10 +70,11 @@ $(function (){
 
 
 
-function uploadFile(){
-	var file = $('#fileToUpload')[0].files[0];
+function uploadFile(path,file,returnValue){
+	//var imageUp;
 	var formdata = new FormData();
 	formdata.append("fileToUpload", file);
+	formdata.append("path",path);
 	$.ajax({
 		type: 'post',
         url: 'upload.php',
@@ -83,7 +85,8 @@ function uploadFile(){
         data: formdata,
         success: function (data) {
         	if(data.status == 'success'){
-        		image.value = data.name;
+        		//image.value = data.name;
+				returnValue(data.name);
         	}
     }
 	});

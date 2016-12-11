@@ -67,7 +67,7 @@
 		case 'updateUser':
 			if(isset($_SESSION['username']) && $_SESSION['username']==$jsonData->user)
 			{	
-				if(updateUser($dbh,$jsonData->name,$jsonData->user,$jsonData->age,$jsonData->email)==0)
+				if(updateUser($dbh,$jsonData->name,$jsonData->user,$jsonData->age,$jsonData->email,$jsonData->imgSrc)==0)
 					$response_array['status'] = 'success';
 			}else  $response_array['status'] = 'userNotLogged';
 			break;
