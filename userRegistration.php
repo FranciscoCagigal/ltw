@@ -16,6 +16,14 @@
 	else return 1;
 	}
 	
+	function updatePass($dbh,$user,$pass) {
+	$stmt = $dbh->prepare('UPDATE User SET password=?WHERE username=?;');
+	$encodedPass = hash('sha256',$pass );
+    if($stmt->execute(array($encodedPass,$user)))
+		return 0;
+	else return 1;
+	}
+	
 	function existUser($dbh,$username,$email) {
 		
 	//TODO: por email como unique na base dados e confirmar se é uncico tbm

@@ -49,9 +49,8 @@
 								<a href="#">Utilizador</a>
 								<ul class="dropdownuser">
 									<li><a id="linkToProfile" href="">Perfil do utilizador</a></li>
-									<li><a href="user-profile-update.html">Atualizar perfil</a></li>
-									<li><a href="user-favourite-restaurant.html">Restaurante favorito</a></li>
-									<li><a href="user-change-pass.html">Alterar Password</a></li>
+									<li><a href="#">Restaurante favorito</a></li>
+									<li><a href="" id="linkToChangePass">Alterar Password</a></li>
 								</ul>
 							</li>
 		

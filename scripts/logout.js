@@ -12,7 +12,9 @@ $(function (){
 		data: JSON.stringify(userData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
+			$('#welelele').prop('href','?page=userProfile&user='+data.info);
 			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info);
+			$('#linkToChangePass').prop('href','?page=userProfile&user='+data.info+'#password');
 			document.getElementById("logout").removeAttribute("hidden");
 			var userData =
 			{

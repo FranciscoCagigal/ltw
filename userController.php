@@ -71,7 +71,20 @@
 					$response_array['status'] = 'success';
 			}else  $response_array['status'] = 'userNotLogged';
 			break;
+		
+		case 'changePass':
+			if(isset($_SESSION['username']) && $_SESSION['username']==$jsonData->user)
+			{	
+				if(checkLogin($dbh,$jsonData->user,$jsonData->oldPass)==0){
+					if(updatePass($dbh,$jsonData->user,$jsonData->newPass)==0){
+						$response_array['status']='success';
+					}
+				}else  $response_array['status'] = 'wrongPass';
+			}
+			break;
+			
 		}
+		
 		
 		
 	}
