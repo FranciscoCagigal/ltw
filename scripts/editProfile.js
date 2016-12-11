@@ -38,7 +38,6 @@ $(function (){
 			 {
 				 $('#editBtn').removeAttr('hidden');
 				 $('.changePasswordDiv').removeAttr('hidden');
-				 $('#imgToUpload').removeAttr('hidden');
 			 }
 		 }
 		 else if(data.status == 'notFound'){
@@ -81,6 +80,7 @@ $(function (){
 						$('#email').removeAttr('disabled');
 						$('#editBtn').prop('hidden',true);
 						$('#saveEdit').prop('hidden',false);
+						$('#imgToUpload').removeAttr('hidden');
 					}
 					else if(data.status == 'serverIssues'){
 						 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
@@ -118,7 +118,6 @@ $(function (){
 					dataType: "json",
 					data: JSON.stringify(userData)
 					}).done(function(data) {
-						console.log(data);
 						if(data.status=='success'){
 							alert('Palavre-passe alterada com sucesso');
 						}
@@ -141,19 +140,20 @@ $(function (){
 		var email=$('#email').val();
 		
 		if(email==""||age==""||name==""){
-			console.log('Todos os campos devem estar preenchidos');
+			alert('Todos os campos devem estar preenchidos');
 		}else{
 			var imgSrc='images/usersProfile/none.png';
-			if($('#imgToUpload')[0].files.length>0){
+			if($('#appendImgHere')[0].children[0].children[0].attributes[0].nodeValue!="images/usersProfile/none.png" && $('#appendImgHere')[0].children[0].children[0].attributes[0].nodeValue.split('images/usersProfile/')[1]!=null){
+				imgSrc=$('#appendImgHere')[0].children[0].children[0].attributes[0].nodeValue;
+			}
+			else if($('#imgToUpload')[0].files.length>0){
 				$.getScript('scripts/createRestaurant.js', function (data) {
 					var imageSrc;
 					uploadFile('images/usersProfile/',$('#imgToUpload')[0].files[0],function(imageSrc){
-					imgSrc=imageSrc;
-					console.log(imgSrc)});
+					imgSrc=imageSrc;});
 				});
 			}
 			setTimeout(function(){
-			console.log('yolo'+imgSrc);
 			var userData =
 				{
 				  'dicionario':'updateUser',
@@ -170,13 +170,14 @@ $(function (){
 					dataType: "json",
 					data: JSON.stringify(userData)
 					}).done(function(data) {
-						console.log(data);
 						if(data.status='success'){
 							$('#name').prop('disabled',true);
 							$('#age').prop('disabled',true);
 							$('#email').prop('disabled',true);
 							$('#editBtn').prop('hidden',false);
 							$('#saveEdit').prop('hidden',true);
+							$('#imgToUpload').prop('hidden',true);
+							alert('Perfil atualizado com sucesso');
 						}
 						else if(data.status == 'serverIssues'){
 							 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
