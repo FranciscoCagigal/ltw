@@ -8,10 +8,10 @@
 
 	<div class="container">
 	
-		<form method="post" enctype="multipart/form-data">
+		<form >
 			<fieldset>
 				<legend>Informações do restaurante:</legend>
-
+				<div class="inline">
 				<div class="restaurantInputs">
 					<label><b>Nome</b></label><br>
 					<input type="text" id='name' placeholder="Nome do restaurante" /><br>
@@ -46,16 +46,17 @@
 					<input type="time" id='openFS' /> às <input type="time" id='closeFS' /><br>
 					<label><b>Média de preços</b></label><br>
 					<input type="number" placeholder="Preço praticado"  id='price'/><br>
-					
-				    <p>Selecione imagem do restaurante:</p>
-				    <input type="file" name="fileToUpload" id="fileToUpload">
-				    <input type="button" value="Upload Image" onclick="uploadFile()" >
-					<div id="imageUp">
-					</div>
+				</div>
+				<div class="upImg" id="uplImgDiv">
+						<label><b>Selecione imagem do restaurante:</b></label><br>
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<div id="imageUp">
+						</div>
+				</div>
 				</div>
 			</fieldset>
 			
-			<button id='submit' type='button'>Criar</button> <br>
+			<button id='submit' type='reset'>Criar</button> <br>
 		
 		</form>
 

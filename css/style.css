@@ -461,8 +461,21 @@ ul.nav-mini.sign-in li a:hover {
 	text-align:center;
 }
 
+.inline{
+	display:inline-flex;
+}
+
+.create-restaurant-wrapper .container{
+	margin:2% 2% 2% 2%;
+}
+
+.upImg {
+	margin-left:15%;
+}
+
 .userUpload{
 	margin-top:2%;
+	margin-left:10%;
 }
 
 .inputs-perfil{
