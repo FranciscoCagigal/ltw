@@ -9,6 +9,9 @@
 					echo "</section>";
 				}
 				?>
+				<div class="favourite">
+					<button id='favourite' type='button'>Marcar como favorito</button>
+				</div>
 			</div>
 		</div>
 		<div class='rating-container'>

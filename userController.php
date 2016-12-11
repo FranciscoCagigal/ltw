@@ -41,8 +41,8 @@
 		case 'loggedUser':
 			if(isset($_SESSION['username']))
 			{	
-				$response_array['status'] = 'success';
-				$response_array['info'] = $_SESSION['username'];
+				if(($response_array['info']=userInfo($dbh,$_SESSION['username']))!=null)
+					$response_array['status'] = 'success';
 			}
 			else $response_array['status'] = 'not';
 			break;
@@ -83,6 +83,14 @@
 			}
 			break;
 			
+		case 'markFav':
+			if(isset($_SESSION['username']))
+			{	
+				if(updateFav($dbh,$_SESSION['username'],$jsonData->id)==0)
+						$response_array['status']='success';
+				
+			}else  $response_array['status'] = 'notLogged';
+			break;
 		}
 		
 		

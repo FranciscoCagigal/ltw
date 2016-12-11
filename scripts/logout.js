@@ -16,8 +16,11 @@ $(function (){
 			document.getElementById("loginBtn").setAttribute("hidden",true);
 			$('#nav-user').show();
 			$('#nav-rest').show();
-			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info);
-			$('#linkToChangePass').prop('href','?page=userProfile&user='+data.info+'#password');
+			
+			if(data.info[0].favRest!=null)
+				$('#favRestLink').prop('href','?page=rest&id='+data.info[0].favRest);
+			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info[0].username);
+			$('#linkToChangePass').prop('href','?page=userProfile&user='+data.info[0].username+'#password');
 			document.getElementById("logout").removeAttribute("hidden");
 			var userData =
 			{
@@ -30,7 +33,6 @@ $(function (){
 			dataType: "json",
 			data: JSON.stringify(userData)
 			}).done(function(data) {
-				console.log(data);
 			 if(data.status == 'success'){
 				
 				var htmlString="";

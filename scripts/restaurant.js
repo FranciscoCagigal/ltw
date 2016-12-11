@@ -1,8 +1,39 @@
 $(function (){
 	
+	$('#favourite').on('click',function(){
+		var idRest=($('.restaurant')[0].id).replace('rest','');
+		var restData =
+		{
+		  'dicionario':'markFav',
+		  'id': idRest
+		}
+		$.ajax({
+		type: "POST",
+		url: "userController.php",
+		contentType: "application/json",
+		dataType: "json",
+		data: JSON.stringify(restData)
+		}).done(function(data) {
+			
+		 if(data.status == 'success'){
+			alert('Restaurante marcado como favorito');
+		 }
+		 else if(data.status == 'notLogged'){
+			 alert('Precisa de ter a sessão iniciada para poder marcar como favorito');
+			 document.location.href='index.php?page=login',true;
+		 }
+		 else if(data.status == 'serverIssues'){
+			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
+		 }
+		
+		}).fail(function(e) {
+		console.log(e);
+	});
+		
+	});
+	
 	$('load',function(){
 		var idRest=($('.restaurant')[0].id).replace('rest','');
-		console.log(idRest);
 		var restData =
     {
 	  'dicionario':'restById',
@@ -17,7 +48,7 @@ $(function (){
 		}).done(function(data) {
 			
 		 if(data.status == 'success'){
-			 console.log(data);
+			 
 			 var resultHTML = $.map(data.info,function(item,index){
 					var primaryDiv = $('<div class=restPrimary></div>');
 					var imgDiv = $('<figure class=restImage><img src='+item.imgSrc+' width=200px height=160px;/></figure>');

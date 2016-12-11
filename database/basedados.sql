@@ -9,11 +9,14 @@ username varchar(20) PRIMARY KEY,
 age number(2) not null,
 email varchar(50) not null,
 password varchar(20) not null,
-imgSrc varchar(50) not null);
+imgSrc varchar(50) not null,
+favRest number(4),
+FOREIGN KEY (favRest) REFERENCES Restaurant(id)
+);
 
 CREATE TABLE IF NOT EXISTS Restaurant(
 id integer PRIMARY KEY AUTOINCREMENT,
-name varchar(50) not null,
+name varchar(50) UNIQUE not null,
 location varchar(50) not null,
 total number(5) not null,
 votes number(5) not null,

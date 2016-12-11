@@ -469,6 +469,11 @@ ul.nav-mini.sign-in li a:hover {
 	margin:2% 2% 2% 2%;
 }
 
+.favourite{
+	text-align:right;
+	margin-right:22%;
+}
+
 .upImg {
 	margin-left:15%;
 }
