@@ -22,7 +22,11 @@ $(function (){
 					var divItem = $('<div class=restaurantItem></div>');
 					divItem.appendTo(listItem);
 					var sectionItem = $('<section id=' + item.id + '></section>');
-					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+item.total/item.votes+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+					var average;
+					if(item.votes==0)
+						average=0;
+					else average=item.total/item.votes;
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
 					imgDiv.appendTo(sectionItem);
 					divDescription.appendTo(sectionItem);
 					sectionItem.appendTo(divItem);

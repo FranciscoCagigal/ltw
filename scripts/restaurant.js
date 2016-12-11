@@ -2,6 +2,7 @@ $(function (){
 	
 	$('load',function(){
 		var idRest=($('.restaurant')[0].id).replace('rest','');
+		console.log(idRest);
 		var restData =
     {
 	  'dicionario':'restById',
@@ -23,13 +24,17 @@ $(function (){
 					var divDescription = $('<div class=restDescription><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
 					var description = $('<p>'+item.description+'</p>');
 					description.appendTo(divDescription);
-					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+item.total/item.votes+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li><li><span>Horário semanal: </span><br>das '+item.openS +' às '+item.closeS+'</li><li><span>Horário fim de semana: </span><br>das '+item.openFS +' às '+item.closeFS+'</li></ul></div>')
+					var average;
+					if(item.votes==0)
+						average=0;
+					else average=item.total/item.votes;
+					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li><li><span>Horário semanal: </span><br>das '+item.openS +' às '+item.closeS+'</li><li><span>Horário fim de semana: </span><br>das '+item.openFS +' às '+item.closeFS+'</li></ul></div>')
 					imgDiv.appendTo(primaryDiv);
 					divDescription.appendTo(primaryDiv);
 					list.appendTo(primaryDiv);
 					return primaryDiv;
 				});
-			$('#rest1').append(resultHTML);
+			$('#rest'+idRest).append(resultHTML);
 			
 		 }
 		 else if(data.status == 'notFound'){
