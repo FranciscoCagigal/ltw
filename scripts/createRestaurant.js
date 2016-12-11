@@ -47,8 +47,7 @@ $(function (){
 		url: "restController.php",
 		contentType: "application/json",
 		dataType: "json",
-		data: JSON.stringify(userData),
-		sucess: (function(data) {
+		data: JSON.stringify(userData)}).done(function(data) {
 			console.log(image);
 		 if(data.status == 'success'){
 			alert('Restaurant successfully created!');		
@@ -59,7 +58,6 @@ $(function (){
 		 else if(data.status == 'serverIssues'){
 			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
 		 }
-		})
 		}).fail(function(e) {
 		console.log(e);
 	});
