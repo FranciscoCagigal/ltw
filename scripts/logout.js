@@ -12,7 +12,10 @@ $(function (){
 		data: JSON.stringify(userData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
-			$('#welelele').prop('href','?page=userProfile&user='+data.info);
+			document.getElementById("registBtn").setAttribute("hidden",true);
+			document.getElementById("loginBtn").setAttribute("hidden",true);
+			$('#nav-user').show();
+			$('#nav-rest').show();
 			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info);
 			$('#linkToChangePass').prop('href','?page=userProfile&user='+data.info+'#password');
 			document.getElementById("logout").removeAttribute("hidden");
@@ -44,6 +47,10 @@ $(function (){
 				console.log(e);
 			});
 		 } 
+		 else if(data.status == 'not'){
+			$('#nav-user').hide();
+			$('#nav-rest').hide();
+		 }
 		 else if(data.status == 'serverIssues'){
 			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
 		 }

@@ -45,7 +45,7 @@
 							</li>
 
 		
-							<li class="user-list">
+							<li class="user-list hidden" id='nav-user'>
 								<a href="#">Utilizador</a>
 								<ul class="dropdownuser">
 									<li><a id="linkToProfile" href="">Perfil do utilizador</a></li>
@@ -55,7 +55,7 @@
 							</li>
 		
 
-							<li class="restaurant-list">
+							<li class="restaurant-list" id="nav-rest">
 								<a href="#">Restaurante</a>
 								<ul class="dropdownrestaurant">
 									<li><a href="?page=restaurantCreation">Adicionar restaurante</a></li>
@@ -75,8 +75,8 @@
 
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
-							<li><a href="?page=login">login</a></li>
-							<li><a href="?page=registration">register</a></li>
+							<li><a href="?page=login" id="loginBtn">login</a></li>
+							<li><a href="?page=registration" id="registBtn">register</a></li>
 							<li><a href="#!" id="logout" hidden>logout</a></li>
 						</ul>
 					</div>
