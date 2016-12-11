@@ -2,26 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	
-	<!-- Title Of Site -->
-	<title>Just food.</title>
+	<title>Just food</title>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="scripts/logout.js" type="text/javascript"></script>
-
-	<!-- CSS Custom -->
 	<link href="css/style.css" rel="stylesheet">
 
 </head>
 <body class="home">
-
 	<div id="introLoader" class="introLoading"></div>
-	
-	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
-
-		<!-- start Header -->
 		<header id="header">
-			<!-- start Navbar (Header) -->
 			<nav class="navbar">
 
 				<div class="container">
@@ -76,7 +66,7 @@
 					<div class="nav-mini-wrapper">
 						<ul class="nav-mini sign-in">
 							<li><a href="?page=login" id="loginBtn">login</a></li>
-							<li><a href="?page=registration" id="registBtn">register</a></li>
+							<li><a href="?page=registration" id="registBtn">registar</a></li>
 							<li><a href="#!" id="logout" hidden>logout</a></li>
 						</ul>
 					</div>
@@ -84,6 +74,4 @@
 				</div>
 
 			</nav>
-			<!-- end Navbar (Header) -->
 		</header>
-		<!-- end Header -->

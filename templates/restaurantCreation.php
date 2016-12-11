@@ -1,13 +1,8 @@
 <div id="fundo">
 <script src="scripts/createRestaurant.js" type="text/javascript"></script>
-
-<!-- start Main Wrapper -->
 <div class="main-wrapper">
-
 <div class="create-restaurant-wrapper">
-
 	<div class="container">
-	
 		<form >
 			<fieldset>
 				<legend>Informações do restaurante:</legend>
@@ -54,14 +49,10 @@
 						</div>
 				</div>
 				</div>
-			</fieldset>
-			
-			<button id='submit' type='reset'>Criar</button> <br>
-		
+			</fieldset>			
+			<button id='submit' type='reset'>Criar</button> <br>		
 		</form>
-
 	</div>
-
 </div>
 </div>
 </div>

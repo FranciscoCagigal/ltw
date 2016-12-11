@@ -1,4 +1,11 @@
 $(function (){
+	//solucao para o chrome que não sabe preencher formularios
+	 $('.fake-autofill-fields').show();
+        // some DOM manipulation/ajax here
+        window.setTimeout(function () {
+            $('.fake-autofill-fields').hide();
+        },1);
+	
   $("#submit").on('click' , function(){
     var name=$('#name').val();
 	var username=$('#username').val();
@@ -47,6 +54,6 @@ $(function (){
   });
 
   $("#cancel").on('click' , function(){
-    alert('cancelei');
+    document.location.href='index.php?page=home',true;
   });
 });

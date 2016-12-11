@@ -1,7 +1,5 @@
 <div id="fundo">
 <script src="scripts/restaurants.js" type="text/javascript"></script>
-
-<!-- start Main Wrapper -->
 <div class="main-wrapper">
 
 <div class="search-restaurant-wrapper">
@@ -29,7 +27,7 @@
 
 </div>
 
-<div class="section sm">
+
 
 	<div class="container">
 	
@@ -110,6 +108,7 @@
 								</div>
 
 		</div>
+		</div>
 		<div class="results">
 				<p id="results"></p>
 			</div>
@@ -139,10 +138,7 @@
 			
 		</div>
 			
-		</div>
 
 	</div>
-
-</div>
 </div>
 </div>

@@ -1,6 +1,5 @@
 <div id="fundo">
 	<script src="scripts/restaurant.js" type="text/javascript"></script>
-	<!-- start Main Wrapper -->
 	<div class="main-wrapper">
 		<div class='restaurant-wrapper'>
 			<div class='restaurant-content'>

@@ -1,8 +1,16 @@
 $(function (){
+	//solucao para o chrome para nao preencher password
+	$('.fake-autofill-fields').show();
+        // some DOM manipulation/ajax here
+        window.setTimeout(function () {
+            $('.fake-autofill-fields').hide();
+        },1);
+	
   $("#submit").on('click' , function(){
 
 	var username=$('#username').val();
     var password=$('#password').val();
+	
 	
     if (username==""||password == "")
       alert("All fields must be filled for registration");
@@ -22,7 +30,6 @@ $(function (){
 		}).done(function(data) {
 			
 		 if(data.status == 'success'){
-			 //console.log(data);
 			document.location.href='index.php?page=rests',true;
 			
 		 }
@@ -41,6 +48,6 @@ $(function (){
   });
 
   $("#cancel").on('click' , function(){
-    alert('cancelei');
+    document.location.href='index.php?page=home',true;
   });
 });

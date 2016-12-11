@@ -2,7 +2,7 @@
 	
 	function createUser($dbh,$name,$username,$age,$email,$password) {
 
-	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password) VALUES(?,?,?,?,?);');
+	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password,imgSrc) VALUES(?,?,?,?,?,images/usersProfile/none.png);');
 	$encodedPass = hash('sha256',$password );
     if($stmt->execute(array($name,$username,$age,$email,$encodedPass)))
 		return 0;

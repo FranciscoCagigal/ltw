@@ -1,4 +1,3 @@
-<!-- start footer -->
 <footer>
 
 	<div class="footer-area-content" id="footer">
@@ -37,7 +36,6 @@
 
 
 	</div>
-	<!-- footer area end -->
 	
 	<div class="bottom-footer">
 	
@@ -48,13 +46,8 @@
 	</div>
 
 </footer>
-<!-- end footer -->
+</div>
 
 </div>
-<!-- end Main Wrapper -->
-
-</div> <!-- / .wrapper -->
-<!-- end Container Wrapper -->
-
 </body>
 </html>

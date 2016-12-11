@@ -12,7 +12,6 @@ $(function (){
 		data: JSON.stringify(restsData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
-			 console.log(data);
 			 var resultHTML = $.map(data.info,function(item,index){
 					var listItem = $('<li></li>');
 					var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
