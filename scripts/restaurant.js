@@ -93,6 +93,7 @@ $(function (){
 	});
 	
 	$('load',function(){
+		
 		var idRest=($('.restaurant')[0].id).replace('rest','');
 		var restData =
     {
@@ -125,6 +126,15 @@ $(function (){
 					list.appendTo(primaryDiv);
 					return primaryDiv;
 				});
+			var mapCanvas = document.getElementById("mapShow");
+			  var mapOptions = {
+				center: new google.maps.LatLng(data.info[0].lat, data.info[0].lng),
+				zoom: 14
+			  }
+			  var map = new google.maps.Map(mapCanvas, mapOptions);
+			  var marker = new google.maps.Marker();
+			marker.setPosition(new google.maps.LatLng(data.info[0].lat, data.info[0].lng));
+				marker.setMap(map);
 			$('#rest'+idRest).append(resultHTML);
 			if(data.myPage){
 				$('#editRest').removeAttr('hidden');

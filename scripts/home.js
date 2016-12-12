@@ -15,7 +15,7 @@ $(function (){
 			 var resultHTML = $.map(data.info,function(item,index){
 					var listItem = $('<li></li>');
 					var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
-					var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
+					var divDescription = $('<div class=descriptionRest><a href = ?page=rest&id='+item.id+'>'+item.name+'</a></div>');
 					var description = $('<p>'+item.description+'</p>');
 					description.appendTo(divDescription);
 					var divItem = $('<div class=restaurantItem></div>');

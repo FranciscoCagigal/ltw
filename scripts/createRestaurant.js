@@ -1,7 +1,18 @@
 var image = {value: ''};
-
+var marker;
 $(function (){
 	
+	$('load',function(){
+		  var mapCanvas = document.getElementById("mapCreate");
+		  var mapOptions = {
+			center: new google.maps.LatLng(41.1579, -8.6291),
+			zoom: 14
+		  }
+		  var map = new google.maps.Map(mapCanvas, mapOptions);
+		  marker = new google.maps.Marker({draggable:true});
+			marker.setPosition(new google.maps.LatLng(41.1579,  -8.6291));
+			marker.setMap(map);
+	});
   $('#fileToUpload').on('change',function(){
 		var file = $('#fileToUpload')[0].files[0];
 		if(file.type.match(/image\/(jpeg|png|jpg|gif)/)!=null)
@@ -45,6 +56,9 @@ $(function (){
 	}
 	if(description==null)
 		description="";
+	var lat = marker.getPosition().lat();
+	var lng = marker.getPosition().lng();
+	console.log(lat);
     var userData =
     {
 	  'dicionario':'createRestaurant',
@@ -57,6 +71,8 @@ $(function (){
 	  'closeFS':closeFS,
       'price':price,
 	  'description':description,
+	  'lat': lat,
+	  'lng':lng,
 	  'image':image.value
     }
     $.ajax({
@@ -67,10 +83,12 @@ $(function (){
 		data: JSON.stringify(userData)}).done(function(data) {
 		
 		 if(data.status == 'success'){
-			alert('Restaurant successfully created!');		
+			alert('Restaurant successfully created!');
+			document.location.href='?page=home';
 		 }
 		 else if(data.status == 'notLogged'){
 			 alert('You need to log in to create a restaurant');
+			 document.location.href='?page=login';
 		 }
 		 else if(data.status == 'serverIssues'){
 			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');

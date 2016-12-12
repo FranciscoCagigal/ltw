@@ -380,7 +380,7 @@ ul.nav-mini.sign-in li a:hover {
 	height:300px;
 }
 
-.create-restaurant-wrapper .container *{
+.create-restaurant-wrapper .container .restaurantInputs *{
 	margin-top:5px;
 	margin-bottom:5px;
 }
@@ -488,7 +488,7 @@ ul.nav-mini.sign-in li a:hover {
 }
 
 .upImg {
-	margin-left:15%;
+	padding-left:10%;
 }
 
 .userUpload{
@@ -573,28 +573,32 @@ ul.nav-mini.sign-in li a:hover {
 
 .rating {
 	box-sizing: border-box;
-    width:160px;
+    width:180px;
+	height:50px;
 }
 .rating span { float:right; position:relative; }
 .rating span input {
     position:absolute;
     opacity:0;
-	width:25px;
-    height:25px;
+	width:30px;
+    height:30px;
 }
 .rating span label {
     display:inline-block;
-    width:30px;
-    height:30px;
+    width:25px;
+    height:25px;
     text-align:center;
 	margin-right:2px;
     
 }
+
 .rating span:hover ~ span label,
 .rating span:hover label,
 .rating span.checked label,
 .rating span.checked ~ span label {
     color:#FFF;
+	width:25px;
+    height:25px;
 	content:url("../images/restaurant/star.png");
 }
 
@@ -630,5 +634,19 @@ footer{
 
 .bottom-footer{
 	margin-top:5%;
+}
+
+#mapCreate {
+	padding-left:5%;
+	width:300px;
+	height:300px;
+}
+
+.mapContainer{
+	padding:30px;
+}
+
+#mapShow{
+	margin-left:35%;
 }
 

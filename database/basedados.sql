@@ -26,6 +26,8 @@ closeS number(2) not null,
 openFS number(2) not null,
 closeFS number(2) not null,
 price number(3) not null,
+lat number(10) not null,
+lng number(10) not null,
 imgSrc varchar(50) not null,
 tipo varchar(50) not null,
 owner varchar(50) not null,
@@ -50,5 +52,5 @@ FOREIGN KEY (restaurant) REFERENCES Restaurant(name)
 );
 
 INSERT INTO User(name,username,age,email,password,imgSrc) VALUES('fui','fui',22,'fui','73405777e7815f65b16bee0d0513d182625d1d8e32207cf8ae15c93e44d843c4','images/usersProfile/none.png');
-INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,imgSrc,tipo,owner) VALUES('BestBuy','Porto',3,1,'Adoramos servi-los',12,24,12,24,15,'images/restsLogo/BestBuy.jpg','indiano','fui');
-INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,imgSrc,tipo,owner) VALUES('It43','Lisboa',2,1,'Venham comer de graça ou quase',18,4,0,0,10,'images/restsLogo/It43.jpg','brasileiro','fui');
+INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,lat,lng,imgSrc,tipo,owner) VALUES('BestBuy','Porto',3,1,'Adoramos servi-los',12,24,12,24,15,41.1579,-8.6291,'images/restsLogo/BestBuy.jpg','indiano','fui');
+INSERT INTO Restaurant(name,location,total,votes,description,openS,closeS,openFS,closeFS,price,lat,lng,imgSrc,tipo,owner) VALUES('It43','Lisboa',2,1,'Venham comer de graça ou quase',18,4,0,0,10,41.1579,-8.6291,'images/restsLogo/It43.jpg','brasileiro','fui');

@@ -42,12 +42,15 @@
 					<label><b>Média de preços</b></label><br>
 					<input type="number" placeholder="Preço praticado"  id='price'/><br>
 				</div>
+				<div id="mapCreate" ></div>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3P9Cgptza2YfyJeFuuun4a8I3Kcz4B34"></script>
 				<div class="upImg" id="uplImgDiv">
 						<label><b>Selecione imagem do restaurante:</b></label><br>
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<div id="imageUp">
 						</div>
 				</div>
+				
 				</div>
 			</fieldset>			
 			<button id='submit' type='reset'>Criar</button> <br>		

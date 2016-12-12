@@ -53,7 +53,7 @@
 		case 'createRestaurant':
 			if(isset($_SESSION['username'])){
 				error_log($jsonData->image);
-				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description,$jsonData->image)==0)
+				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description,$jsonData->lat,$jsonData->lng,$jsonData->image)==0)
 					$response_array['status'] = 'success';
 			}else $response_array['status'] = 'notLogged';
 			break;
@@ -103,10 +103,12 @@
 			
 		case 'restById':
 				if(($response_array['info']=getRestById($dbh,$jsonData->id))!=null)
-				{
-					if($response_array['info'][0]['owner']==$_SESSION['username'])
-						$response_array['myPage']=true;
-					else $response_array['myPage']=false;
+				{	if(isset($_SESSION['username'])){
+						if($response_array['info'][0]['owner']==$_SESSION['username'])
+							$response_array['myPage']=true;
+						else $response_array['myPage']=false;
+					}else $response_array['myPage']=false;
+					
 					$response_array['status'] = 'success';
 					
 				}else $response_array['status'] = 'notFound';
