@@ -104,7 +104,11 @@
 		case 'restById':
 				if(($response_array['info']=getRestById($dbh,$jsonData->id))!=null)
 				{
+					if($response_array['info'][0]['owner']==$_SESSION['username'])
+						$response_array['myPage']=true;
+					else $response_array['myPage']=false;
 					$response_array['status'] = 'success';
+					
 				}else $response_array['status'] = 'notFound';
 			break;
 			
@@ -113,6 +117,17 @@
 				{
 					$response_array['status'] = 'success';
 				}
+			break;
+			
+		case 'updateRest':
+			if(($response_array['info']=getRestById($dbh,$jsonData->id))!=null)
+				{
+					if($response_array['info'][0]['owner']==$_SESSION['username']){
+						if(updateRestaurant($dbh,$jsonData->id,$jsonData->location,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price)==0)
+							$response_array['status'] = 'success';
+					}					
+				}else $response_array['status'] = 'notFound';
+			
 			break;
 		
 		}

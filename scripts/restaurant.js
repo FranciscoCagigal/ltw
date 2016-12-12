@@ -1,5 +1,65 @@
 $(function (){
 	
+	$('.restaurant-content').on('click','#editRest',function(){
+		$('.hiddenRestAttr').removeAttr('disabled');
+		$('#saveRest').removeAttr('hidden');
+		$('#editRest').prop('hidden',true);
+	});
+	
+	$('.restaurant-content').on('click','#saveRest',function(){
+		var idRest=($('.restaurant')[0].id).replace('rest','');
+		var locationRest=$('#location').val();
+		var type=$('#tipo').val();
+		var price=$('#price').val();
+		var openS=$('#openS').val();
+		var closeS=$('#closeS').val();
+		var openFS=$('#openFS').val();
+		var closeFS=$('#closeFS').val();
+		
+		if(locationRest=="" || type=="" || price==""|| openS==""|| closeS==""|| openFS==""|| closeFS==""){
+			alert('Todos os campos devem estar preenchidos');
+		}else{
+			var restData =
+			{
+			  'dicionario':'updateRest',
+			  'id': idRest,
+			  'location':locationRest,
+			  'type':type,
+			  'price':price,
+			  'closeS':closeS,
+			  'openFS':openFS,
+			  'openS':openS,
+			  'closeFS':closeFS
+			}
+			$.ajax({
+			type: "POST",
+			url: "restController.php",
+			contentType: "application/json",
+			dataType: "json",
+			data: JSON.stringify(restData)
+			}).done(function(data) {
+				
+			 if(data.status == 'success'){
+				alert('Definições alteradas');
+				$('.hiddenRestAttr').prop('disabled',true);
+				$('#saveRest').prop('hidden',true);
+				$('#editRest').prop('hidden',false);
+			 }
+			 else if(data.status == 'notLogged'){
+				 alert('Precisa de ter a sessão iniciada para poder marcar como favorito');
+				 document.location.href='index.php?page=login',true;
+			 }
+			 else if(data.status == 'serverIssues'){
+				 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
+			 }
+			
+			}).fail(function(e) {
+			console.log(e);
+		});
+		}
+		
+	});
+	
 	$('#favourite').on('click',function(){
 		var idRest=($('.restaurant')[0].id).replace('rest','');
 		var restData =
@@ -46,12 +106,12 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(restData)
 		}).done(function(data) {
-			
+			console.log(data);
 		 if(data.status == 'success'){
 			 
 			 var resultHTML = $.map(data.info,function(item,index){
 					var primaryDiv = $('<div class=restPrimary></div>');
-					var imgDiv = $('<figure class=restImage><img src='+item.imgSrc+' width=200px height=160px;/></figure>');
+					var imgDiv = $('<figure class=restImage><img src='+item.imgSrc+' width=200px height=210px;/></figure>');
 					var divDescription = $('<div class=restDescription><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
 					var description = $('<p>'+item.description+'</p>');
 					description.appendTo(divDescription);
@@ -59,13 +119,17 @@ $(function (){
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li><li><span>Horário semanal: </span><br>das '+item.openS +' às '+item.closeS+'</li><li><span>Horário fim de semana: </span><br>das '+item.openFS +' às '+item.closeFS+'</li></ul></div>')
+					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span><input class=hiddenRestAttr type=text id=location disabled value="+item.location+' /></li><li><span>Cozinha: </span><input class=hiddenRestAttr type=text disabled id=tipo value='+item.tipo+' /></li><li><span>Preço médio: </span><input type=number class=hiddenRestAttr disabled id=price value='+item.price+' /></li><li><span>Horário semanal: </span><br>das <input type=time id=openS disabled class=hiddenRestAttr value='+item.openS +' /> às <input type=time id=closeS disabled class=hiddenRestAttr value='+item.closeS+' /></li><li><span>Horário fim de semana: </span><br>das <input type=time class=hiddenRestAttr id=openFS disabled value='+item.openFS +' \> às <input type=time id=closeFS disabled class=hiddenRestAttr value='+item.closeFS+' /></li><li class=editBtn><button  id=editRest type=button hidden>Editar</button></li><li class=editBtn><button  id=saveRest type=button hidden>Guardar</button></li></ul></div>')
 					imgDiv.appendTo(primaryDiv);
 					divDescription.appendTo(primaryDiv);
 					list.appendTo(primaryDiv);
 					return primaryDiv;
 				});
 			$('#rest'+idRest).append(resultHTML);
+			if(data.myPage){
+				$('#editRest').removeAttr('hidden');
+				console.log($('#editRest'));
+			}
 			
 		 }
 		 else if(data.status == 'notFound'){

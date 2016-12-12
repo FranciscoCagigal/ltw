@@ -417,6 +417,14 @@ ul.nav-mini.sign-in li a:hover {
 	margin-bottom:10%;
 }
 
+.restAttr li{
+	width:200px;
+}
+
+.restAttr li input{
+	width:66px;
+}
+
 .restDescription a{
 	font-size:290%;
 	font-weight:bold;
@@ -467,6 +475,11 @@ ul.nav-mini.sign-in li a:hover {
 
 .create-restaurant-wrapper .container{
 	margin:2% 2% 2% 2%;
+}
+
+.editBtn{
+	margin-top:5%;
+	text-align:right;
 }
 
 .favourite{
