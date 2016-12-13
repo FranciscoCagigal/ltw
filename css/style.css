@@ -273,9 +273,7 @@ ul.nav-mini.sign-in li a:hover {
 }
 
 #fundo{
-	background-image:url('../images/site/fundo.jpg');
-	background-repeat: no-repeat;
-	 background-size: cover;
+	background-color:#1ff0ec;
 }
 
 #login,#registration{
@@ -650,3 +648,35 @@ footer{
 	margin-left:35%;
 }
 
+.comments-container{
+	margin-left:20%;
+	text-align:center;
+	padding-bottom:10%;
+}
+
+.comments-container ul li{
+	list-style:none;
+	background-color:gray;
+	padding:1%;
+	border:solid;
+	border-radius:25px;
+	margin: 1%;
+}
+
+#appendCommentsHere{
+	width:800px;
+	text-align:left;
+}
+
+#userComment{
+	width:98%;
+	background-color:white;
+}
+
+#userComment:empty:before {
+    content: attr(placeholder);	
+}
+
+#userComment:focus {
+	outline:0px;
+}

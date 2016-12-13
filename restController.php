@@ -111,7 +111,7 @@
 					}else $response_array['myPage']=false;
 					
 					$response_array['status'] = 'success';
-					
+					$response_array['comment'] = getcommentsOfRest($dbh,$jsonData->id);
 				}else $response_array['status'] = 'notFound';
 			break;
 			

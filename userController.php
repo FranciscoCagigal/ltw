@@ -4,6 +4,7 @@
 	include_once('connection.php');
 	include_once('userRegistration.php');
 	include_once('userLogin.php');
+	include_once('comment.php');
 	
 	$loginLimit = 3;
 	$locoutTime = 300;
@@ -123,6 +124,16 @@
 				
 			}else  $response_array['status'] = 'notLogged';
 			break;
+			
+		case 'postComment':
+			session_regenerate_id(true);
+			if(isset($_SESSION['username']))
+			{	
+				if(postComment($dbh,$_SESSION['username'],$jsonData->id,$jsonData->comment)==0)
+						$response_array['status']='success';
+				
+			}else  $response_array['status'] = 'notLogged';
+			break;	
 		}
 		
 		

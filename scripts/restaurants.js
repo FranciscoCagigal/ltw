@@ -2,7 +2,7 @@ $(function (){
 	var sizePerPage =1;
 	
 	$('#restName').on('keydown', function(e) {
-		if (e.which == 13) {
+		if (e.which == 13 || e.keyCode==13) {
 			$('#searchButton').click();
 			e.preventDefault();
 		}
@@ -25,7 +25,6 @@ $(function (){
 			data: JSON.stringify(restData)
 			}).done(function(data) {
 				
-				console.log(data);
 				//limpar
 				var myNode = document.getElementById("restsList");
 				while (myNode.firstChild) {

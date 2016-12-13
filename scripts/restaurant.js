@@ -1,5 +1,47 @@
 $(function (){
 	
+	var sizePerPage =5;
+	
+	$('#userComment').on('keydown', function(e) {
+		if (e.which == 13 || e.keyCode==13) {
+			var idRest=($('.restaurant')[0].id).replace('rest','');
+			var comment=$('#userComment').text();
+			if(comment!= ""){
+				var restData =
+			{
+			  'dicionario':'postComment',
+			  'id': idRest,
+			  'comment':comment
+			}
+			
+			$.ajax({
+			type: "POST",
+			url: "userController.php",
+			contentType: "application/json",
+			dataType: "json",
+			data: JSON.stringify(restData)
+			}).done(function(data) {
+				
+			 if(data.status == 'success'){
+				 window.location.reload()
+			 }
+			 else if(data.status == 'notLogged'){
+				 alert('Precisa de ter a sessão iniciada para poder marcar como favorito');
+				 document.location.href='index.php?page=login',true;
+			 }
+			 else if(data.status == 'serverIssues'){
+				 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
+			 }
+			
+			}).fail(function(e) {
+			console.log(e);
+			});
+			}
+			
+			e.preventDefault();
+		}
+	});	
+	
 	$('.restaurant-content').on('click','#editRest',function(){
 		$('.hiddenRestAttr').removeAttr('disabled');
 		$('#saveRest').removeAttr('hidden');
@@ -126,6 +168,22 @@ $(function (){
 					list.appendTo(primaryDiv);
 					return primaryDiv;
 				});
+				
+				var pages=pagination(data.comment,sizePerPage);
+				var pageSet;
+				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.comment.length){
+					pageSet=1;
+				}
+				
+				var pageDisplayed= data.comment.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);	
+				
+				var commentsHTML = $.map(pageDisplayed,function(item,index){
+					var input = $('<li  class=comment>'+item.username+': '+item.userComment+'</li>');
+					return input;
+				});
+				
+				$('#pagination').append(pages);
+				$('#appendCommentsHere').prepend(commentsHTML);
 			var mapCanvas = document.getElementById("mapShow");
 			  var mapOptions = {
 				center: new google.maps.LatLng(data.info[0].lat, data.info[0].lng),
@@ -211,3 +269,14 @@ $(function (){
 
   });
 });
+
+function pagination(itemsArray,sizePerPage){
+	var nrPages = Math.ceil(itemsArray.length/sizePerPage);
+	var idRest=($('.restaurant')[0].id).replace('rest','');
+	var resultHTML="";
+	for(var i=0;i<nrPages;i++){
+		resultHTML+='<li><a href=?page=rest&id='+idRest+'&offset='+(i+1)+'>'+(i+1)+'</a></li>';
+	}
+	
+	return resultHTML;
+}

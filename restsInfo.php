@@ -70,5 +70,11 @@
 		else return null;	
 	}
 	
+	function getcommentsOfRest($dbh,$id){
+		$stmt = $dbh->prepare('SELECT * FROM Comment WHERE restaurant=?;');
+		if($stmt->execute(array($id)))
+			return $stmt->fetchAll();
+		else return null;	
+	}
 	
 ?>

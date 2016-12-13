@@ -28,5 +28,28 @@
 		<div id="mapShow" style="width:350px;height:350px"></div>
 		</div>								     
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3P9Cgptza2YfyJeFuuun4a8I3Kcz4B34"></script>
+		<section id="comments">
+		<div class="comments-wrapper">
+			<div class="comments-container">
+				<ul id="appendCommentsHere">
+				<li><span   id="userComment" contenteditable="true" placeholder="Escreve aqui"></span></li>
+				</div>
+			</div>
+		</section>
+		<div class="pagination-wrapper">
+		
+			<div class="pagination-content">
+			
+				<div class="pagination">
+					
+					<ul id="pagination" class="pager-list">		
+					</ul>	
+					
+				</div>
+					
+				</div>
+			
+		</div>
+		</div>
 	</div>
 </div>
