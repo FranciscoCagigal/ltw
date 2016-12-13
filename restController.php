@@ -51,6 +51,7 @@
 			break;
 		
 		case 'createRestaurant':
+			session_regenerate_id(true);
 			if(isset($_SESSION['username'])){
 				error_log($jsonData->image);
 				if(createRestaurant($dbh,$_SESSION['username'],$jsonData->name,$jsonData->locationRes,$jsonData->type,$jsonData->openS,$jsonData->closeS,$jsonData->openFS,$jsonData->closeFS,$jsonData->price,$jsonData->description,$jsonData->lat,$jsonData->lng,$jsonData->image)==0)
@@ -122,6 +123,7 @@
 			break;
 			
 		case 'updateRest':
+			session_regenerate_id(true);
 			if(($response_array['info']=getRestById($dbh,$jsonData->id))!=null)
 				{
 					if($response_array['info'][0]['owner']==$_SESSION['username']){

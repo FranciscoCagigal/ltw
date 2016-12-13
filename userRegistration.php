@@ -1,8 +1,7 @@
 <?php
 	
 	function createUser($dbh,$name,$username,$age,$email,$password) {
-
-	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password,imgSrc,favRest) VALUES(?,?,?,?,?,images/usersProfile/none.png,null);');
+	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password,imgSrc,favRest,firstLoginError,loginErrorCount) VALUES(?,?,?,?,?,images/usersProfile/none.png,null,0,0);');
 	$encodedPass = hash('sha256',$password );
     if($stmt->execute(array($name,$username,$age,$email,$encodedPass)))
 		return 0;

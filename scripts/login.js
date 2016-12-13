@@ -1,7 +1,6 @@
 $(function (){
 	//solucao para o chrome para nao preencher password
 	$('.fake-autofill-fields').show();
-        // some DOM manipulation/ajax here
         window.setTimeout(function () {
             $('.fake-autofill-fields').hide();
         },1);
@@ -32,6 +31,12 @@ $(function (){
 		 if(data.status == 'success'){
 			document.location.href='index.php?page=rests',true;
 			
+		 }
+		 else if(data.status == 'lockedOut'){
+			 alert('Demasiadas tentativas erradas. Tente novamente daqui a 5min');
+		 }
+		 else if(data.status == 'fail'){
+			 alert('Palavra passe ou username incorretos/s');
 		 }
 		 else if(data.status == 'userNotExists'){
 			 alert('username or password incorrect/s');

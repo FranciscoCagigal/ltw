@@ -15,4 +15,17 @@
 		else return null;
 	}
 
+	function getLoginFail($dbh,$username){
+		$stmt = $dbh->prepare('SELECT firstLoginError,loginErrorCount FROM User WHERE username = ?;');
+		if($stmt->execute(array($username)))
+			return $stmt->fetchall();
+		else return null;
+	}
+	
+	function updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$username){
+		$stmt = $dbh->prepare('UPDATE User SET firstLoginError=?,loginErrorCount=? WHERE username = ?;');
+		if($stmt->execute(array($firstLoginError,$loginErrorCount,$username)))
+			return 0;
+		else return 1;
+	}
 ?>

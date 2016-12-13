@@ -5,6 +5,9 @@
 	include_once('userRegistration.php');
 	include_once('userLogin.php');
 	
+	$loginLimit = 3;
+	$locoutTime = 300;
+	
 	$response_array['status'] = 'serverIssues';
 	
 	$data = file_get_contents('php://input');
@@ -21,10 +24,36 @@
 			break;
 		
 		case 'loginUser':
-			
-			if(checkLogin($dbh,$jsonData->username,$jsonData->password)==0){
-					$response_array['status'] = 'success';
-					$_SESSION['username'] = $jsonData->username;
+			$firstLoginError;
+			$loginErrorCount;
+			if(($loginFail=getLoginFail($dbh,$jsonData->username))!=null)
+			{
+				foreach($loginFail as $row) {
+				   $firstLoginError = $row['firstLoginError'];
+				   $loginErrorCount = $row['loginErrorCount'];
+				}
+				if(($loginErrorCount >= $loginLimit)&&(time() - $firstLoginError < $locoutTime)){
+					$response_array['status'] = 'lockedOut';
+				}
+				else{
+					if(checkLogin($dbh,$jsonData->username,$jsonData->password)==0){
+						$response_array['status'] = 'success';
+						$_SESSION['username'] = $jsonData->username;
+						$firstLoginError=0;
+						$loginErrorCount=0;
+						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
+					}
+					else if(time()-$firstLoginError>$locoutTime) {
+						$firstLoginError=time();
+						$loginErrorCount=1;
+						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
+						$response_array['status'] = 'fail';
+					}else{
+						$loginErrorCount++;
+						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
+						$response_array['status'] = 'fail';
+					}
+				}
 			}
 			else $response_array['status'] = 'userNotExists';
 			break;
@@ -65,6 +94,7 @@
 			break;
 			
 		case 'updateUser':
+			session_regenerate_id(true);
 			if(isset($_SESSION['username']) && $_SESSION['username']==$jsonData->user)
 			{	
 				if(updateUser($dbh,$jsonData->name,$jsonData->user,$jsonData->age,$jsonData->email,$jsonData->imgSrc)==0)
@@ -73,6 +103,7 @@
 			break;
 		
 		case 'changePass':
+			session_regenerate_id(true);
 			if(isset($_SESSION['username']) && $_SESSION['username']==$jsonData->user)
 			{	
 				if(checkLogin($dbh,$jsonData->user,$jsonData->oldPass)==0){
@@ -84,6 +115,7 @@
 			break;
 			
 		case 'markFav':
+			session_regenerate_id(true);
 			if(isset($_SESSION['username']))
 			{	
 				if(updateFav($dbh,$_SESSION['username'],$jsonData->id)==0)

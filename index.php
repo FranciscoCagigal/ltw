@@ -1,11 +1,16 @@
 <?php
 session_start(); 
 
-if(isset($_GET['page']))
+$templates = array("aboutUs", "home", "login", "registration", "rest", "userProfile", "restaurantCreation", "rests");
+
+if(isset($_GET['page']) && in_array($_GET['page'],$templates))
 {
 $page='templates/'.$_GET['page'].'.php';
 }
-else $page='templates/home.php';
+else {
+	header("LOCATION: ?page=home");
+	$page='templates/home.php';
+}
 
 include_once('templates/header.php');
 include_once($page);
