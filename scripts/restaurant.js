@@ -200,6 +200,46 @@ $(function (){
 			  var marker = new google.maps.Marker();
 			marker.setPosition(new google.maps.LatLng(data.info[0].lat, data.info[0].lng));
 				marker.setMap(map);
+				
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = {
+					  lat: position.coords.latitude,
+					  lng: position.coords.longitude
+					};
+					map.setCenter(pos);
+					
+					var flightPlanCoordinates = [
+					  {lat: parseFloat(data.info[0].lat), lng: parseFloat(data.info[0].lng)},
+					  {lat: pos.lat, lng: pos.lng}
+					];
+					var flightPath = new google.maps.Polyline({
+					  path: flightPlanCoordinates,
+					  geodesic: true,
+					  strokeColor: '#FF0000',
+					  strokeOpacity: 1.0,
+					  strokeWeight: 2
+					});
+
+					flightPath.setMap(map);
+					
+					
+					
+					
+					
+					
+					
+					
+				}, function() {
+					handleLocationError(true, infoWindow, map.getCenter());
+				});
+				} else {
+				  // Browser doesn't support Geolocation
+				  handleLocationError(false, infoWindow, map.getCenter());
+				}
+				
+				
+				
 			$('#rest'+idRest).append(resultHTML);
 			if(data.myPage){
 				$('#editRest').removeAttr('hidden');
