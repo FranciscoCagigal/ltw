@@ -52,7 +52,7 @@
 												if($_GET['location']!='Braga')
 													echo "<option value=Braga>Braga</option>";
 												if($_GET['location']!='Vila Real')
-													echo "<option value=Vila Real>Vila Real</option>";
+													echo '<option value="Vila Real">Vila Real</option>';
 												if($_GET['location']!='Viseu')
 													echo "<option value=Viseu>Viseu</option>";
 											}
@@ -62,7 +62,7 @@
 											echo "<option value=Porto>Porto</option>";
 											echo "<option value=Coimbra>Coimbra</option>";
 											echo "<option value=Braga>Braga</option>";
-											echo "<option value=Vila Real>Vila Real</option>";
+											echo '<option value="Vila Real">Vila Real</option>';
 											echo "<option value=Viseu>Viseu</option>";
 											}
 										
@@ -85,7 +85,7 @@
 												if($_GET['cuisine']!='Chinesa')
 													echo "<option value=Chinesa>Chinesa</option>";
 												if($_GET['cuisine']!='Fast Food')
-													echo "<option value=Fast Food>Fast Food</option>";
+													echo '<option value="Fast Food">Fast Food</option>';
 												if($_GET['cuisine']!='Grill')
 													echo "<option value=Grill>Grill</option>";
 												if($_GET['cuisine']!='Indiana')
@@ -98,7 +98,7 @@
 											echo "<option value=Hamburger>Hamburger</option>";
 											echo "<option value=Frango>Frango</option>";
 											echo "<option value=Chinesa>Chinesa</option>";
-											echo "<option value=Fast Food>Fast Food</option>";
+											echo '<option value="Fast Food">Fast Food</option>';
 											echo "<option value=Grill>Grill</option>";
 											echo "<option value=Indiana>Indiana</option>";
 											echo "<option value=Italiana>Italiana</option>";

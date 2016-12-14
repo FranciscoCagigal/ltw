@@ -13,6 +13,9 @@ $(function (){
 		var cuisine = $("#cuisineSearch").val();
 		localStorage.setItem('cuisineItem', cuisine);
 		localStorage.setItem('locationItem', locationRest);
+		
+		console.log(locationRest);
+		
 		var restData =
 			{
 			  'dicionario':'restByLocCui',
