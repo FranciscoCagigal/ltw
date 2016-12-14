@@ -41,9 +41,7 @@ $(function (){
 				}
 				$('#dropdownManager').append(htmlString);				
 			 }
-			 else if(data.status == 'serverIssues'){
-				 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
-			 }
+			 
 		 
 				}).fail(function(e) {
 				console.log(e);
@@ -54,7 +52,6 @@ $(function (){
 			$('#nav-rest').hide();
 		 }
 		 else if(data.status == 'serverIssues'){
-			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
 		 }
 		 
 		}).fail(function(e) {

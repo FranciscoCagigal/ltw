@@ -70,6 +70,13 @@
 		else return null;	
 	}
 	
+	function getRestTop5Comments($dbh){
+		$stmt = $dbh->prepare('SELECT * FROM RESTAURANT JOIN COMMENT ON (RESTAURANT.id=restaurant) GROUP BY RESTAURANT.id ORDER BY COUNT(Restaurant.id) DESC LIMIT 5;');
+		if($stmt->execute())
+			return $stmt->fetchAll();
+		else return null;	
+	}
+	
 	function getcommentsOfRest($dbh,$id){
 		$stmt = $dbh->prepare('SELECT * FROM Comment WHERE restaurant=?;');
 		if($stmt->execute(array($id)))

@@ -149,7 +149,6 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(restData)
 		}).done(function(data) {
-			console.log(data);
 		 if(data.status == 'success'){
 			 
 			 var resultHTML = $.map(data.info,function(item,index){
@@ -196,7 +195,6 @@ $(function (){
 			$('#rest'+idRest).append(resultHTML);
 			if(data.myPage){
 				$('#editRest').removeAttr('hidden');
-				console.log($('#editRest'));
 			}
 			
 		 }
@@ -268,6 +266,53 @@ $(function (){
 	});
 
   });
+  
+  $('#uploadPhoto').on('click',function(){
+	  var imgSrc;
+	  console.log($('#photoToUpload')[0].files);
+	  if($('#photoToUpload')[0].files.length>0){
+
+
+			var imageSrc;
+			uploadFile('images/photos/',$('#photoToUpload')[0].files[0],function(imageSrc){
+			imgSrc=imageSrc;});
+	  }
+		
+		var idRest=($('.restaurant')[0].id).replace('rest','');
+		
+	setTimeout(function(){
+		console.log(imgSrc);
+		var restData =
+    {
+	  'dicionario':'postPhoto',
+	  'imgSrc':imgSrc,
+	  'restaurant':idRest
+    }
+    $.ajax({
+		type: "POST",
+		url: "userController.php",
+		contentType: "application/json",
+		dataType: "json",
+		data: JSON.stringify(restData)
+		}).done(function(data) {
+			
+		 if(data.status == 'success'){
+			alert('Your have successfully voted!');
+		 }
+		 else if(data.status == 'notLogged'){
+			 alert('You must be logged in to vote!');
+		 }
+		 else if(data.status == 'serverIssues'){
+			 alert('OOPS! It appears there is a problem with the server. We are trying to solve the issue as soon as possible');
+		 }
+		
+		}).fail(function(e) {
+		console.log(e);
+	});},500);
+		
+		
+  });
+  
 });
 
 function pagination(itemsArray,sizePerPage){
@@ -279,4 +324,26 @@ function pagination(itemsArray,sizePerPage){
 	}
 	
 	return resultHTML;
+}
+
+function uploadFile(path,file,returnValue){
+	
+	var formdata = new FormData();
+	formdata.append("fileToUpload", file);
+	formdata.append("path",path);
+	$.ajax({
+		type: 'post',
+        url: 'upload.php',
+        cache: false,
+       	contentType: false,
+       	processData: false,
+		async:false,
+        data: formdata,
+        success: function (data) {
+        	if(data.status == 'success'){
+        		//image.value = data.name;
+				returnValue(data.name);
+        	}
+    }
+	});
 }

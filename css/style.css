@@ -677,6 +677,19 @@ footer{
     content: attr(placeholder);	
 }
 
+.galleryInline{
+	display:inline-flex;
+}
+
+.gallery-wrapper{
+	margin-left:5%;
+}
+
+.gallery-wrapper ul li{
+	list-style:none;
+	padding-bottom:2%;
+}
+
 #userComment:focus {
 	outline:0px;
 }

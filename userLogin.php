@@ -3,7 +3,7 @@
 	function checkLogin($dbh,$username,$password) {
 	$encodedPass = hash('sha256',$password );
 	$stmt = $dbh->prepare('SELECT password FROM User WHERE username = ?;');
-    if($stmt->execute(array($username)) && $stmt->fetch()[0]==$encodedPass)
+    if($stmt->execute(array($username)) && password_verify($password, $stmt->fetch()['password']))
 		return 0;
 	else return 1;
 	}

@@ -58,7 +58,6 @@ $(function (){
 		description="";
 	var lat = marker.getPosition().lat();
 	var lng = marker.getPosition().lng();
-	console.log(lat);
     var userData =
     {
 	  'dicionario':'createRestaurant',
@@ -104,7 +103,7 @@ $(function (){
 
 
 function uploadFile(path,file,returnValue){
-	//var imageUp;
+	
 	var formdata = new FormData();
 	formdata.append("fileToUpload", file);
 	formdata.append("path",path);

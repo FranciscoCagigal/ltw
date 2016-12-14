@@ -1,8 +1,10 @@
 <?php
 	
 	function createUser($dbh,$name,$username,$age,$email,$password) {
-	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password,imgSrc,favRest,firstLoginError,loginErrorCount) VALUES(?,?,?,?,?,images/usersProfile/none.png,null,0,0);');
-	$encodedPass = hash('sha256',$password );
+	$stmt = $dbh->prepare('INSERT INTO User(name,username, age, email, password,imgSrc) VALUES(?,?,?,?,?,"images/usersProfile/none.png");');
+	$options = ['cost' => 12];
+    $encodedPass = password_hash($password, PASSWORD_DEFAULT, $options);
+
     if($stmt->execute(array($name,$username,$age,$email,$encodedPass)))
 		return 0;
 	else return 1;
@@ -17,7 +19,8 @@
 	
 	function updatePass($dbh,$user,$pass) {
 	$stmt = $dbh->prepare('UPDATE User SET password=?WHERE username=?;');
-	$encodedPass = hash('sha256',$pass );
+	$options = ['cost' => 12];
+	$encodedPass = password_hash($pass, PASSWORD_DEFAULT, $options);
     if($stmt->execute(array($encodedPass,$user)))
 		return 0;
 	else return 1;

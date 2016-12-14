@@ -116,7 +116,7 @@
 			break;
 			
 		case 'ratingTop5':
-				if(($response_array['info']=getRestTop5Rating($dbh))!=null)
+				if(($response_array['info']=getRestTop5Rating($dbh))!=null && ($response_array['comment']=getRestTop5Comments($dbh))!=null)
 				{
 					$response_array['status'] = 'success';
 				}

@@ -162,13 +162,15 @@ $(function (){
 				imgSrc=$('#appendImgHere')[0].children[0].children[0].attributes[0].nodeValue;
 			}
 			else if($('#imgToUpload')[0].files.length>0){
-				$.getScript('scripts/createRestaurant.js', function (data) {
-					var imageSrc;
+				var imageSrc;
 					uploadFile('images/usersProfile/',$('#imgToUpload')[0].files[0],function(imageSrc){
 					imgSrc=imageSrc;});
-				});
+				
+				
 			}
+			
 			setTimeout(function(){
+				console.log(imgSrc);
 			var userData =
 				{
 				  'dicionario':'updateUser',
@@ -203,3 +205,25 @@ $(function (){
 		}
 	});
 });
+
+function uploadFile(path,file,returnValue){
+	
+	var formdata = new FormData();
+	formdata.append("fileToUpload", file);
+	formdata.append("path",path);
+	$.ajax({
+		type: 'post',
+        url: 'upload.php',
+        cache: false,
+       	contentType: false,
+       	processData: false,
+		async:false,
+        data: formdata,
+        success: function (data) {
+        	if(data.status == 'success'){
+        		//image.value = data.name;
+				returnValue(data.name);
+        	}
+    }
+	});
+}

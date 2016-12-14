@@ -5,9 +5,7 @@
 	include_once('userRegistration.php');
 	include_once('userLogin.php');
 	include_once('comment.php');
-	
-	$loginLimit = 3;
-	$locoutTime = 300;
+	include_once('gallery.php');
 	
 	$response_array['status'] = 'serverIssues';
 	
@@ -25,38 +23,11 @@
 			break;
 		
 		case 'loginUser':
-			$firstLoginError;
-			$loginErrorCount;
-			if(($loginFail=getLoginFail($dbh,$jsonData->username))!=null)
-			{
-				foreach($loginFail as $row) {
-				   $firstLoginError = $row['firstLoginError'];
-				   $loginErrorCount = $row['loginErrorCount'];
-				}
-				if(($loginErrorCount >= $loginLimit)&&(time() - $firstLoginError < $locoutTime)){
-					$response_array['status'] = 'lockedOut';
-				}
-				else{
 					if(checkLogin($dbh,$jsonData->username,$jsonData->password)==0){
 						$response_array['status'] = 'success';
 						$_SESSION['username'] = $jsonData->username;
-						$firstLoginError=0;
-						$loginErrorCount=0;
-						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
 					}
-					else if(time()-$firstLoginError>$locoutTime) {
-						$firstLoginError=time();
-						$loginErrorCount=1;
-						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
-						$response_array['status'] = 'fail';
-					}else{
-						$loginErrorCount++;
-						updateLoginFail($dbh,$firstLoginError,$loginErrorCount,$jsonData->username);
-						$response_array['status'] = 'fail';
-					}
-				}
-			}
-			else $response_array['status'] = 'userNotExists';
+			
 			break;
 			
 		case 'logoutUser':
@@ -126,7 +97,6 @@
 			break;
 			
 		case 'postComment':
-			session_regenerate_id(true);
 			if(isset($_SESSION['username']))
 			{	
 				if(postComment($dbh,$_SESSION['username'],$jsonData->id,$jsonData->comment)==0)
@@ -134,6 +104,17 @@
 				
 			}else  $response_array['status'] = 'notLogged';
 			break;	
+			
+		case 'postPhoto':
+		
+			if(isset($_SESSION['username']))
+			{	
+				if(postPhoto($dbh,$jsonData->restaurant,$jsonData->imgSrc)==0)
+						$response_array['status']='success';
+				
+			}else  $response_array['status'] = 'notLogged';
+			break;	
+			
 		}
 		
 		
