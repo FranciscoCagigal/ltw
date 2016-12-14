@@ -11,6 +11,8 @@ $(function (){
 	$('#Selector-content').on('change',function(){
 		var locationRest = $("#locationSearch").val();
 		var cuisine = $("#cuisineSearch").val();
+		localStorage.setItem('cuisineItem', cuisine);
+		localStorage.setItem('locationItem', locationRest);
 		var restData =
 			{
 			  'dicionario':'restByLocCui',
@@ -178,11 +180,18 @@ $(function (){
 	//load da pagina
 	$('load',function(){
 		
+	if (localStorage.getItem('cuisineItem')) {
+		document.getElementById("cuisineSearch").value=localStorage.getItem('cuisineItem');
+	}	
+		
+	if (localStorage.getItem('locationItem')) {
+		document.getElementById('locationSearch').value=localStorage.getItem('locationItem');
+	}		
+	
 	var locationRest = $("#locationSearch").val();
 	var cuisine = $("#cuisineSearch").val();
 	
 	if(locationRest!='Todos'||cuisine!='Todos'){
-		console.log('passeui aqui');
 		$('#Selector-content').change(); //forçar evento
 	}
 	else{

@@ -18,9 +18,9 @@ $(function (){
 			$('#nav-rest').show();
 			
 			if(data.info[0].favRest!=null)
-				$('#favRestLink').prop('href','?page=rest&id='+data.info[0].favRest);
-			$('#linkToProfile').prop('href','?page=userProfile&user='+data.info[0].username);
-			$('#linkToChangePass').prop('href','?page=userProfile&user='+data.info[0].username+'#password');
+				$('#favRestLink').prop('href','?page=rest&id='+escapeHtml(data.info[0].favRest));
+			$('#linkToProfile').prop('href','?page=userProfile&user='+escapeHtml(data.info[0].username));
+			$('#linkToChangePass').prop('href','?page=userProfile&user='+escapeHtml(data.info[0].username)+'#password');
 			document.getElementById("logout").removeAttribute("hidden");
 			var userData =
 			{
