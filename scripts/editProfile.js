@@ -7,7 +7,7 @@ $(function (){
 		{
 			if(file.size<5000000){
 				var tmppath = URL.createObjectURL(file);
-				var resultHtml='<figure class=userUpload><img src='+tmppath+' width=200px height=200px;/></figure>';
+				var resultHtml='<figure class=userUpload><img src='+escapeHtml(tmppath)+' width=200px height=200px;/></figure>';
 				$('#appendImgHere').empty().append(resultHtml);
 			}
 			else{
@@ -44,7 +44,7 @@ $(function (){
 		data: JSON.stringify(restData)
 		}).done(function(data) {
 		 if(data.status == 'success'){
-			 var resultHtml='<figure class=userUpload><img src='+data.info[0].imgSrc+' width=200px height=200px;/></figure>';
+			 var resultHtml='<figure class=userUpload><img src='+escapeHtml(data.info[0].imgSrc)+' width=200px height=200px;/></figure>';
 			 $('#appendImgHere').append(resultHtml);
 			 $('#name').prop('value',data.info[0].name);
 			 $('#age').prop('value',data.info[0].age);
@@ -226,4 +226,19 @@ function uploadFile(path,file,returnValue){
         	}
     }
 	});
+}
+
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
 }

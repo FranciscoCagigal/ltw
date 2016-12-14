@@ -54,18 +54,18 @@ $(function (){
 				 
 				var resultHTML = $.map(pageDisplayed,function(item,index){
 					var listItem = $('<li></li>');
-					var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
-					var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
-					var description = $('<p>'+item.description+'</p>');
+					var imgDiv = $('<figure class=restLogo><img src='+escapeHtml(item.imgSrc)+' width=100px height=80px;/></figure>');
+					var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+escapeHtml(item.id)+'>'+escapeHtml(item.name)+'</a></div>');
+					var description = $('<p>'+escapeHtml(item.description)+'</p>');
 					description.appendTo(divDescription);
 					var divItem = $('<div class=restaurantItem></div>');
 					divItem.appendTo(listItem);
-					var sectionItem = $('<section id=' + item.id + '></section>');
+					var sectionItem = $('<section id=' + escapeHtml(item.id) + '></section>');
 					var average;
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 					imgDiv.appendTo(sectionItem);
 					divDescription.appendTo(sectionItem);
 					sectionItem.appendTo(divItem);
@@ -135,18 +135,18 @@ $(function (){
 				 
 			var resultHTML = $.map(pageDisplayed,function(item,index){
 				var listItem = $('<li></li>');
-				var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
-				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
-				var description = $('<p>'+item.description+'</p>');
+				var imgDiv = $('<figure class=restLogo><img src='+escapeHtml(item.imgSrc)+' width=100px height=80px;/></figure>');
+				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+escapeHtml(item.id)+'>'+escapeHtml(item.name)+'</a></div>');
+				var description = $('<p>'+escapeHtml(item.description)+'</p>');
 				description.appendTo(divDescription);
 				var divItem = $('<div class=restaurantItem></div>');
 				divItem.appendTo(listItem);
-				var sectionItem = $('<section id=' + item.id + '></section>');
+				var sectionItem = $('<section id=' + escapeHtml(item.id) + '></section>');
 				var average;
 				if(item.votes==0)
 					average=0;
 				else average=item.total/item.votes;
-				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>');
 				imgDiv.appendTo(sectionItem);
 				divDescription.appendTo(sectionItem);
 				sectionItem.appendTo(divItem);
@@ -209,18 +209,18 @@ $(function (){
 			
 			var resultHTML = $.map(pageDisplayed,function(item,index){
 				var listItem = $('<li></li>');
-				var imgDiv = $('<figure class=restLogo><img src='+item.imgSrc+' width=100px height=80px;/></figure>');
-				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
-				var description = $('<p>'+item.description+'</p>');
+				var imgDiv = $('<figure class=restLogo><img src='+escapeHtml(item.imgSrc)+' width=100px height=80px;/></figure>');
+				var divDescription = $('<div class=descriptionRest><a href = index.php?page=rest&id='+escapeHtml(item.id)+'>'+escapeHtml(item.name)+'</a></div>');
+				var description = $('<p>'+escapeHtml(item.description)+'</p>');
 				description.appendTo(divDescription);
 				var divItem = $('<div class=restaurantItem></div>');
 				divItem.appendTo(listItem);
-				var sectionItem = $('<section id=' + item.id + '></section>');
+				var sectionItem = $('<section id=' + escapeHtml(item.id) + '></section>');
 				var average;
 				if(item.votes==0)
 					average=0;
 				else average=item.total/item.votes;
-				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+item.location+'</li><li><span>Cozinha: </span>'+item.tipo+'</li><li><span>Preço médio: </span>'+item.price+'€</li></ul></div>')
+				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 				imgDiv.appendTo(sectionItem);
 				divDescription.appendTo(sectionItem);
 				sectionItem.appendTo(divItem);
@@ -256,4 +256,17 @@ function pagination(itemsArray,sizePerPage){
 	return resultHTML;
 }
 
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
 
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}

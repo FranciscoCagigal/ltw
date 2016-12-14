@@ -153,15 +153,15 @@ $(function (){
 			 
 			 var resultHTML = $.map(data.info,function(item,index){
 					var primaryDiv = $('<div class=restPrimary></div>');
-					var imgDiv = $('<figure class=restImage><img src='+item.imgSrc+' width=200px height=210px;/></figure>');
-					var divDescription = $('<div class=restDescription><a href = index.php?page=rest&id='+item.id+'>'+item.name+'</a></div>');
-					var description = $('<p>'+item.description+'</p>');
+					var imgDiv = $('<figure class=restImage><img src='+escapeHtml(item.imgSrc)+' width=200px height=210px;/></figure>');
+					var divDescription = $('<div class=restDescription><a href = index.php?page=rest&id='+escapeHtml(item.id)+'>'+escapeHtml(item.name)+'</a></div>');
+					var description = $('<p>'+escapeHtml(item.description)+'</p>');
 					description.appendTo(divDescription);
 					var average;
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+average+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span><input class=hiddenRestAttr type=text id=location disabled value="+item.location+' /></li><li><span>Cozinha: </span><input class=hiddenRestAttr type=text disabled id=tipo value='+item.tipo+' /></li><li><span>Preço médio: </span><input type=number class=hiddenRestAttr disabled id=price value='+item.price+' /></li><li><span>Horário semanal: </span><br>das <input type=time id=openS disabled class=hiddenRestAttr value='+item.openS +' /> às <input type=time id=closeS disabled class=hiddenRestAttr value='+item.closeS+' /></li><li><span>Horário fim de semana: </span><br>das <input type=time class=hiddenRestAttr id=openFS disabled value='+item.openFS +' \> às <input type=time id=closeFS disabled class=hiddenRestAttr value='+item.closeFS+' /></li><li class=editBtn><button  id=editRest type=button hidden>Editar</button></li><li class=editBtn><button  id=saveRest type=button hidden>Guardar</button></li></ul></div>')
+					var list =$('<div class=restAttr><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=15></></li><li><span>Localização: </span><input class=hiddenRestAttr type=text id=location disabled value="+escapeHtml(item.location)+' /></li><li><span>Cozinha: </span><input class=hiddenRestAttr type=text disabled id=tipo value='+escapeHtml(item.tipo)+' /></li><li><span>Preço médio: </span><input type=number class=hiddenRestAttr disabled id=price value='+escapeHtml(item.price)+' /></li><li><span>Horário semanal: </span><br>das <input type=time id=openS disabled class=hiddenRestAttr value='+escapeHtml(item.openS) +' /> às <input type=time id=closeS disabled class=hiddenRestAttr value='+escapeHtml(item.closeS)+' /></li><li><span>Horário fim de semana: </span><br>das <input type=time class=hiddenRestAttr id=openFS disabled value='+escapeHtml(item.openFS) +' \> às <input type=time id=closeFS disabled class=hiddenRestAttr value='+escapeHtml(item.closeFS)+' /></li><li class=editBtn><button  id=editRest type=button hidden>Editar</button></li><li class=editBtn><button  id=saveRest type=button hidden>Guardar</button></li></ul></div>')
 					imgDiv.appendTo(primaryDiv);
 					divDescription.appendTo(primaryDiv);
 					list.appendTo(primaryDiv);
@@ -171,7 +171,7 @@ $(function (){
 				 var albumHTML="";
 				 
 				 for(var i=0;i<data.album.length;i++){
-					 albumHTML+='<li><a href='+data.album[i].imgSrc+' title="by user: '+data.album[i].username+'"><img src='+data.album[i].imgSrc+'></a></li>';
+					 albumHTML+='<li><a href='+escapeHtml(data.album[i].imgSrc)+' title="by user: '+escapeHtml(data.album[i].username)+'"><img src='+escapeHtml(data.album[i].imgSrc)+'></a></li>';
 				 }
 				
 				$('#prependAlbumHere').prepend(albumHTML);
@@ -185,7 +185,7 @@ $(function (){
 				var pageDisplayed= data.comment.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);	
 				
 				var commentsHTML = $.map(pageDisplayed,function(item,index){
-					var input = $('<li  class=comment>'+item.username+': '+item.userComment+'</li>');
+					var input = $('<li  class=comment>'+escapeHtml(item.username)+': '+escapeHtml(item.userComment)+'</li>');
 					return input;
 				});
 				
@@ -399,4 +399,19 @@ function uploadFile(path,file,returnValue){
         	}
     }
 	});
+}
+
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
 }

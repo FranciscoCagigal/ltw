@@ -37,7 +37,7 @@ $(function (){
 				
 				var htmlString="";
 				for(var i=0;i<data.info.length;i++){
-					htmlString+='<li><a href=?page=rest&id='+data.info[i].id+'>'+data.info[i].name+'</a></li>';
+					htmlString+='<li><a href=?page=rest&id='+escapeHtml(data.info[i].id)+'>'+escapeHtml(data.info[i].name)+'</a></li>';
 				}
 				$('#dropdownManager').append(htmlString);				
 			 }
@@ -85,3 +85,18 @@ $(function (){
 
   });
 });
+
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': '&quot;',
+  "'": '&#39;',
+  "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}

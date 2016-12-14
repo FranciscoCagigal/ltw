@@ -19,7 +19,7 @@ $(function (){
 		{
 			if(file.size<5000000){
 				var tmppath = URL.createObjectURL(file);
-				var resultHtml='<figure class=userUpload><img src='+tmppath+' width=200px;/></figure>';
+				var resultHtml='<figure class=userUpload><img src='+escapeHtml(tmppath)+' width=200px;/></figure>';
 				$('#imageUp').empty().append(resultHtml);
 			}
 			else{
