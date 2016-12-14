@@ -5,6 +5,7 @@
 	include_once('restsInfo.php');
 	include_once('restPutInfo.php');
 	include_once('vote.php');
+	include_once('gallery.php');
 	
 
 	$response_array['status'] = 'serverIssues';
@@ -112,6 +113,7 @@
 					
 					$response_array['status'] = 'success';
 					$response_array['comment'] = getcommentsOfRest($dbh,$jsonData->id);
+					$response_array['album'] = getPhotos($dbh,$jsonData->id);
 				}else $response_array['status'] = 'notFound';
 			break;
 			

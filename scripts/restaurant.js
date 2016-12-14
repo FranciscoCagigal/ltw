@@ -168,6 +168,14 @@ $(function (){
 					return primaryDiv;
 				});
 				
+				 var albumHTML="";
+				 
+				 for(var i=0;i<data.album.length;i++){
+					 albumHTML+='<li><a href='+data.album[i].imgSrc+' title="by user: '+data.album[i].username+'"><img src='+data.album[i].imgSrc+'></a></li>';
+				 }
+				
+				$('#prependAlbumHere').prepend(albumHTML);
+				
 				var pages=pagination(data.comment,sizePerPage);
 				var pageSet;
 				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.comment.length){
@@ -196,6 +204,11 @@ $(function (){
 			if(data.myPage){
 				$('#editRest').removeAttr('hidden');
 			}
+
+
+			$('#thumbnails a').lightBox();
+
+
 			
 		 }
 		 else if(data.status == 'notFound'){
@@ -245,7 +258,7 @@ $(function (){
 		}).done(function(data) {
 			
 		 if(data.status == 'success'){
-			alert('Your have successfully voted!');
+			alert('You have successfully voted!');
 		 }
 		 else if(data.status == 'voteUpdated'){
 			 
@@ -297,7 +310,7 @@ $(function (){
 		}).done(function(data) {
 			
 		 if(data.status == 'success'){
-			alert('Your have successfully voted!');
+			 window.location.reload();
 		 }
 		 else if(data.status == 'notLogged'){
 			 alert('You must be logged in to vote!');

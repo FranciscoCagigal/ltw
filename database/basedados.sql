@@ -54,8 +54,11 @@ FOREIGN KEY (restaurant) REFERENCES Restaurant(id)
 
 CREATE TABLE IF NOT EXISTS Gallery(
 id integer PRIMARY KEY AUTOINCREMENT,
+username varchar(50) not null,
 restaurant integer not null,
 imgSrc varchar(100) not null,
+insertionDate INTEGER not null,
+FOREIGN KEY (username) REFERENCES User(username),
 FOREIGN KEY (restaurant) REFERENCES Restaurant(id)
 );
 

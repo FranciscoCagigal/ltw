@@ -30,14 +30,9 @@
 			<div class="gallery-wrapper">
 			<div class="gallery-content">
 			  <div id="thumbnails">
-				<ul class="clearfix">
+				<ul id="prependAlbumHere" class="clearfix">
 				
-				  <li><a href="images/photos/01-turntable-illustration-graphic.png" title="Turntable by Jens Kappelmann"><img src="images/photos/01-turntable-illustration-graphic-thumbnail.png" alt="turntable"></a></li>
-				  <li><a href="images/photos/02-robot-diy-kit.png" title="DIY Robot by Jory Raphael"><img src="images/photos/02-robot-diy-kit-thumbnail.png" alt="DIY Robot Kit"></a></li>
-				  <li><a href="images/photos/03-todly-green-monster.png" title="Todly by Scott Wetterschneider"><img src="images/photos/03-todly-green-monster-thumbnail.png" alt="Todly"></a></li>
-				  <li><a href="images/photos/04-loz-tea-party.png" title="LoZ Tea Party by Joseph Le"><img src="images/photos/04-loz-tea-party-thumbnail.png" alt="legend of zelda tea party"></a></li>
-				  <li><a href="images/photos/10-big-restaurant.png" title="Klaxon Icon by John Khester"><img src="images/photos/10-big-restaurant-thumbnail.png" alt="airhorn icon"></a></li>
-				  <li><input type="file" id="photoToUpload"/></li>
+					<li><input type="file" id="photoToUpload"/></li>
 				  <li><button id="uploadPhoto">Upload</button></li>
 				</ul>
 			  </div>
@@ -75,11 +70,7 @@
 		</div>
   
   
-<script type="text/javascript">
-$(function() {
-    $('#thumbnails a').lightBox();
-});
-</script>
+
 		</div>
 	</div>
 </div>

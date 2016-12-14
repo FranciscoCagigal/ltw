@@ -109,7 +109,7 @@
 		
 			if(isset($_SESSION['username']))
 			{	
-				if(postPhoto($dbh,$jsonData->restaurant,$jsonData->imgSrc)==0)
+				if(postPhoto($dbh,$jsonData->restaurant,$jsonData->imgSrc,$_SESSION['username'])==0)
 						$response_array['status']='success';
 				
 			}else  $response_array['status'] = 'notLogged';
