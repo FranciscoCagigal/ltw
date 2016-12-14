@@ -46,9 +46,9 @@ $(function (){
 		 if(data.status == 'success'){
 			 var resultHtml='<figure class=userUpload><img src='+escapeHtml(data.info[0].imgSrc)+' width=200px height=200px;/></figure>';
 			 $('#appendImgHere').append(resultHtml);
-			 $('#name').prop('value',data.info[0].name);
-			 $('#age').prop('value',data.info[0].age);
-			 $('#email').prop('value',data.info[0].email);
+			 $('#name').prop('value',escapeHtml(data.info[0].name));
+			 $('#age').prop('value',escapeHtml(data.info[0].age));
+			 $('#email').prop('value',escapeHtml(data.info[0].email));
 			 if(data.myUser)
 			 {
 				 $('#editBtn').removeAttr('hidden');
@@ -71,6 +71,7 @@ $(function (){
 });
 	$('#editBtn').on('click',function(){
 		var index=document.location.href.split('user=')[1].search(/[#&]/);
+		console.log(index);
 		var user;
 		if(index!=-1){
 			user=document.location.href.split('user=')[1].slice(0,index);

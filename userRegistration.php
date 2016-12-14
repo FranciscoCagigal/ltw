@@ -5,14 +5,14 @@
 	$options = ['cost' => 12];
     $encodedPass = password_hash($password, PASSWORD_DEFAULT, $options);
 
-    if($stmt->execute(array($name,$username,$age,$email,$encodedPass)))
+    if($stmt->execute(array(trim(strip_tags($name)),trim(strip_tags($username)),trim(strip_tags($age)),trim(strip_tags($email)),$encodedPass)))
 		return 0;
 	else return 1;
 	}
 	
 	function updateUser($dbh,$name,$user,$age,$email,$imgSrc) {
 	$stmt = $dbh->prepare('UPDATE User SET name=?, age=?,email=?,imgSrc=? WHERE username=?;');
-    if($stmt->execute(array($name,$age,$email,$imgSrc,$user)))
+    if($stmt->execute(array(trim(strip_tags($name)),trim(strip_tags($age)),trim(strip_tags($email)),trim(strip_tags($imgSrc)),$user)))
 		return 0;
 	else return 1;
 	}
@@ -29,7 +29,7 @@
 	function updateFav($dbh,$user,$id) {
 	$stmt = $dbh->prepare('UPDATE User SET favRest=? WHERE username=?;');
 
-    if($stmt->execute(array($id,$user)))
+    if($stmt->execute(array(trim(strip_tags($id)),$user)))
 		return 0;
 	else return 1;
 	}

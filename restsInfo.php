@@ -17,7 +17,7 @@
 	
 	function updateVoteInfo($dbh,$id,$total,$votes){
 		$stmt = $dbh->prepare('UPDATE Restaurant SET total=?,votes=? WHERE id = ?;');
-		if($stmt->execute(array($total,$votes,$id)))
+		if($stmt->execute(array(trim(strip_tags($total)),trim(strip_tags($votes)),$id)))
 			return true;
 		else return false;	
 	}

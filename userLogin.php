@@ -15,7 +15,7 @@
 		else return null;
 	}
 
-	function getLoginFail($dbh,$username){
+	/**function getLoginFail($dbh,$username){
 		$stmt = $dbh->prepare('SELECT firstLoginError,loginErrorCount FROM User WHERE username = ?;');
 		if($stmt->execute(array($username)))
 			return $stmt->fetchall();
@@ -27,5 +27,5 @@
 		if($stmt->execute(array($firstLoginError,$loginErrorCount,$username)))
 			return 0;
 		else return 1;
-	}
+	}*/
 ?>
