@@ -129,7 +129,7 @@ $(function (){
 				var pages=pagination(data.info,sizePerPage);
 				var pageSet;
 				console.log(sizePerPage*pageSet);
-				if((pageSet=document.location.href.split('offset=')[1])==null || sizePerPage*pageSet>data.info.length){
+				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>Math.ceil(data.info.length/sizePerPage)){
 					pageSet=1;
 				}
 				
@@ -179,14 +179,6 @@ $(function (){
 	
 	//load da pagina
 	$('load',function(){
-		
-	/*if (localStorage.getItem('cuisineItem')) {
-		document.getElementById("cuisineSearch").value=localStorage.getItem('cuisineItem');
-	}	
-		
-	if (localStorage.getItem('locationItem')) {
-		document.getElementById('locationSearch').value=localStorage.getItem('locationItem');
-	}*/		
 	
 	var locationRest = $("#locationSearch").val();
 	var cuisine = $("#cuisineSearch").val();
@@ -210,7 +202,7 @@ $(function (){
 			 
 			var pages=pagination(data.info,sizePerPage);
 			var pageSet;
-			if((pageSet=document.location.href.split('offset=')[1])==null || sizePerPage*pageSet>data.info.length){
+			if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>Math.ceil(data.info.length/sizePerPage)){
 				pageSet=1;
 			}
 			
