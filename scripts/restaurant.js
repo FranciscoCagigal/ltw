@@ -185,7 +185,7 @@ $(function (){
 				var pageDisplayed= data.comment.slice((pageSet-1)*sizePerPage, (pageSet-1)*sizePerPage+sizePerPage);	
 				
 				var commentsHTML = $.map(pageDisplayed,function(item,index){
-					var input = $('<li  class=comment>'+escapeHtml(item.username)+': '+escapeHtml(item.userComment)+'</li>');
+					var input = $('<li  class=comment><a href=?page=userProfile&user='+escapeHtml(item.username)+'>'+escapeHtml(item.username)+'</a>'+': '+escapeHtml(item.userComment)+'</li>');
 					return input;
 				});
 				

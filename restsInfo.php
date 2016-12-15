@@ -37,7 +37,7 @@
 	}
 	
 	function getRestByName($dbh,$name){
-		$stmt = $dbh->prepare('SELECT * FROM Restaurant WHERE name = ?;');
+		$stmt = $dbh->prepare('SELECT * FROM Restaurant WHERE upper(name) = upper(?);');
 		if($stmt->execute(array($name)))
 			return $stmt->fetchAll();
 		else return null;	
