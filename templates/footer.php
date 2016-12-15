@@ -40,7 +40,7 @@
 	<div class="bottom-footer">
 	
 		<div class="container">
-				<p>Copyright © André Restivo</p>
+				<p>Copyright © André Correia, José Gomes</p>
 		</div>
 		
 	</div>

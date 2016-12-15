@@ -6,8 +6,6 @@ if(isset($_POST['path'])){
 	$target_dir = $_POST['path'];
 	$target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
 
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
 	$temp = explode(".", $_FILES["fileToUpload"]["name"]);
 	$newfilename = round(microtime(true)) . '.' . end($temp);
 	if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_dir . $newfilename)) {  

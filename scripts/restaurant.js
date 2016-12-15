@@ -322,16 +322,19 @@ $(function (){
   
   $('#uploadPhoto').on('click',function(){
 	  var imgSrc;
-	  console.log($('#photoToUpload')[0].files);
 	  if($('#photoToUpload')[0].files.length>0){
 
-
-			var imageSrc;
-			uploadFile('images/photos/',$('#photoToUpload')[0].files[0],function(imageSrc){
-			imgSrc=imageSrc;});
-	  }
+		var file = $('#photoToUpload')[0].files[0];
 		
-		var idRest=($('.restaurant')[0].id).replace('rest','');
+		if(file.type.match(/image\/(jpeg|png|jpg|gif)/)!=null)
+		{
+			if(file.size<5000000){
+				
+				var imageSrc;
+				uploadFile('images/photos/',$('#photoToUpload')[0].files[0],function(imageSrc){
+				imgSrc=imageSrc;});
+				
+				var idRest=($('.restaurant')[0].id).replace('rest','');
 		
 	setTimeout(function(){
 		console.log(imgSrc);
@@ -364,7 +367,22 @@ $(function (){
 	});},500);
 		
 		
-  });
+
+				
+			}
+			else{
+				alert('Imagem demasiado grande');
+			}
+			
+		}
+		else{
+			$('#imgToUpload').val('');
+			alert('Formato não suportado');
+		}
+			
+	  }
+		
+		  });
   
 });
 
