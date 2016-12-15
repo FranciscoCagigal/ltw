@@ -12,8 +12,11 @@ $(function (){
     var age=$('#age').val();
     var email=$('#email').val();
     var password=$('#password').val();
-	
-    if (name == "" ||username==""|| age == null||email=="" || password == "")
+	if(!/[A-Za-z_0\-9.]@[A-Za-z.].[A-Za-z]/.test(email)){
+		alert('email invalido');
+	}
+	else{
+		if (name == "" ||username==""|| age == null||email=="" || password == "")
       alert("All fields must be filled for registration");
     else if (age<18) {
       alert('You must be 18 or older to register');
@@ -35,7 +38,6 @@ $(function (){
 		dataType: "json",
 		data: JSON.stringify(userData)
 		}).done(function(data) {
-			console.log(data);
 		 if(data.status == 'success'){
 			document.location.href='index.php?page=login',true;
 		 }
@@ -51,9 +53,15 @@ $(function (){
 	});
 
   }
+	}
+    
   });
 
   $("#cancel").on('click' , function(){
     document.location.href='index.php?page=home',true;
   });
+  
+ 
+  
+  
 });
