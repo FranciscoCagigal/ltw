@@ -1,5 +1,5 @@
 $(function (){
-	var sizePerPage =1;
+	var sizePerPage =5;
 	
 	$('#restName').on('keydown', function(e) {
 		if (e.which == 13 || e.keyCode==13) {
@@ -11,10 +11,6 @@ $(function (){
 	$('#Selector-content').on('change',function(){
 		var locationRest = $("#locationSearch").val();
 		var cuisine = $("#cuisineSearch").val();
-		localStorage.setItem('cuisineItem', cuisine);
-		localStorage.setItem('locationItem', locationRest);
-		
-		console.log(locationRest);
 		
 		var restData =
 			{
@@ -70,7 +66,7 @@ $(function (){
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(Math.round( average * 10) / 10)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 					imgDiv.appendTo(sectionItem);
 					divDescription.appendTo(sectionItem);
 					sectionItem.appendTo(divItem);
@@ -132,7 +128,8 @@ $(function (){
 				 
 				var pages=pagination(data.info,sizePerPage);
 				var pageSet;
-				if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.info.length){
+				console.log(sizePerPage*pageSet);
+				if((pageSet=document.location.href.split('offset=')[1])==null || sizePerPage*pageSet>data.info.length){
 					pageSet=1;
 				}
 				
@@ -183,13 +180,13 @@ $(function (){
 	//load da pagina
 	$('load',function(){
 		
-	if (localStorage.getItem('cuisineItem')) {
+	/*if (localStorage.getItem('cuisineItem')) {
 		document.getElementById("cuisineSearch").value=localStorage.getItem('cuisineItem');
 	}	
 		
 	if (localStorage.getItem('locationItem')) {
 		document.getElementById('locationSearch').value=localStorage.getItem('locationItem');
-	}		
+	}*/		
 	
 	var locationRest = $("#locationSearch").val();
 	var cuisine = $("#cuisineSearch").val();
@@ -213,7 +210,7 @@ $(function (){
 			 
 			var pages=pagination(data.info,sizePerPage);
 			var pageSet;
-			if((pageSet=document.location.href.split('offset=')[1])==null || pageSet>data.info.length){
+			if((pageSet=document.location.href.split('offset=')[1])==null || sizePerPage*pageSet>data.info.length){
 				pageSet=1;
 			}
 			
@@ -232,7 +229,7 @@ $(function (){
 				if(item.votes==0)
 					average=0;
 				else average=item.total/item.votes;
-				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
+				var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(Math.round( average * 10) / 10)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 				imgDiv.appendTo(sectionItem);
 				divDescription.appendTo(sectionItem);
 				sectionItem.appendTo(divItem);
@@ -261,8 +258,11 @@ $(function (){
 function pagination(itemsArray,sizePerPage){
 	var nrPages = Math.ceil(itemsArray.length/sizePerPage);
 	var resultHTML="";
+	var locationRest = $("#locationSearch").val();
+		var cuisine = $("#cuisineSearch").val();
 	for(var i=0;i<nrPages;i++){
-		resultHTML+='<li><a href=?page=rests&offset='+(i+1)+'>'+(i+1)+'</a></li>';
+		
+		resultHTML+='<li><a href=?page=rests&location='+locationRest+'&cuisine='+cuisine+'&offset='+(i+1)+'>'+(i+1)+'</a></li>';
 	}
 	
 	return resultHTML;

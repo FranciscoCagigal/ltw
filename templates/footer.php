@@ -40,7 +40,7 @@
 	<div class="bottom-footer">
 	
 		<div class="container">
-				<p>Quero o 20!</p>
+				<p>Copyright © André Restivo</p>
 		</div>
 		
 	</div>
