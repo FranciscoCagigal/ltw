@@ -25,7 +25,7 @@ $(function (){
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(Math.round( average * 10) / 10)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 					imgDiv.appendTo(sectionItem);
 					divDescription.appendTo(sectionItem);
 					sectionItem.appendTo(divItem);
@@ -46,7 +46,7 @@ $(function (){
 					if(item.votes==0)
 						average=0;
 					else average=item.total/item.votes;
-					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(average)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
+					var list =$('<div class=attributes><ul class=restList><li><span>Classificação Média: </span>'+escapeHtml(Math.round( average * 10) / 10)+"<img src=images/restaurant/star.png width=20></></li><li><span>Localização: </span>"+escapeHtml(item.location)+'</li><li><span>Cozinha: </span>'+escapeHtml(item.tipo)+'</li><li><span>Preço médio: </span>'+escapeHtml(item.price)+'€</li></ul></div>')
 					imgDiv.appendTo(sectionItem);
 					divDescription.appendTo(sectionItem);
 					sectionItem.appendTo(divItem);

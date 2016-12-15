@@ -57,7 +57,7 @@
 								</ul>
 							</li>
 
-							<li class="aboutus-list"><a href="?page=aboutUs#aboutUs">Sobrenos</a></li>
+							<li class="aboutus-list"><a href="?page=aboutUs#aboutUs">Sobre nós</a></li>
 							<li class="contacts-list"><a href="?page=aboutUs#contactUs">Contactos</a></li>
 						</ul>
 
