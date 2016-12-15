@@ -9,16 +9,15 @@
 			<div class="container">
 				<div class="FAQ">
 				  <h1>O que fazemos?</h1>
-				  <p>Este site visa a criar uma comunidade portuguesa que interage sobre os restaurantes e partilhem experiências e bla bla bla (faz este texto, sr.tese)</p>
+				  <p>Este site visa a criar uma comunidade de interação sobre os restaurantes permitindo partilhar experiências gastronómicas maravilhosas. Poderá deixar o seu comentário e/ou foto ilustrativa da sua visita tal como o seu voto.</p>
 				</div>
 				<div class="FAQ">
 				  <h1>Porque o fazemos?</h1>
-				  <p>Esta ideia surgiu porque sentimos que havia uma necessidade de informação sobre experiências reais entre pessoas e diversos restaurantes.</p>
+				  <p>Esta ideia surgiu porque sentimos que havia a necessidade de partilhar informação sobre experiências reais entre pessoas e diversos restaurantes.</p>
 				  <p>O facto de este trabalho ter sido realizado no âmbito da unidade curricular Linguagens e Tecnologias Web 2016 foi uma motivação extra.</p>
 				</div>
 				<div class="FAQ">
 				  <h1>Qual o nivel de segurança que oferecemos aos utilizadores?</h1>
-				  <p>Um utilizador apenas torna público o que quer.</p>
 				  <p>Quanto a questões de ataques cibernautas, temos razões para acreditar num nível de segurança não inferior ao da NSA (National Security Agency).</p>
 				</div>
 				<div class="FAQ">

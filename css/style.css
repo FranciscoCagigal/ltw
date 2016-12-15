@@ -273,7 +273,7 @@ ul.nav-mini.sign-in li a:hover {
 }
 
 #fundo{
-	background-color:#1ff0ec;
+	background-color:#F1EEFD;
 }
 
 #login,#registration{
@@ -321,7 +321,7 @@ ul.nav-mini.sign-in li a:hover {
 }
 
 .aboutUs-wrapper .container .FAQ h1{
-	color:red;
+	color:blue;
 	font-size: 250%;
 	padding:1%;
 }
